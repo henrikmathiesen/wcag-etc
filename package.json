@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/henrikmathiesen/wcag-etc/issues"
   },
-  "homepage": "https://github.com/henrikmathiesen/wcag-etc#readme"
+  "homepage": "https://github.com/henrikmathiesen/wcag-etc#readme",
+  "devDependencies": {
+    "node-sass": "4.5.1",
+    "onchange": "3.2.1"
+  },
+  "dependencies": {
+    "foundation-sites": "6.3.1"
+  }
 }
