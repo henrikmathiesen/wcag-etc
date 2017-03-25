@@ -1,13 +1,25 @@
 .wg-foundation-mq {
+    margin-top: $global-margin;
+
     > div {
         padding: $global-padding;
         background-color: $success-color;
         display: none;
     }
+
+    > div + div {
+        margin-top: $global-margin;
+    }
 }
 
 .wg-foundation-mq--small {
     @include breakpoint(small) {
+        display: block!important;
+  }
+}
+
+.wg-foundation-mq--small-only {
+    @include breakpoint(small only) {
         display: block!important;
   }
 }
