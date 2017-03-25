@@ -30,3 +30,7 @@ Do use cross-env for cross platform/terminal support, https://www.npmjs.com/pack
 Make sure that cross-env command is right before the script in npm scripts, like in package.json in this project  
 Issue: https://github.com/kentcdodds/cross-env/issues/13  
 Answer: https://github.com/mikechabot/cross-env-example/pull/1
+
+### cache bust and inject to index.html
+Cache busting works with npm package hashmark, but I have problem injecting it into index.html due to this (I do want to replace the file):  
+https://github.com/DannyMoerkerke/postbuild/issues/3

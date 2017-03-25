@@ -42,3 +42,11 @@
 @include foundation-top-bar;
 @include foundation-visibility-classes;
 @include foundation-float-classes;
+
+body {
+    background-color: blueviolet;
+}
+
+.test-col {
+    column-count: 4;
+}
