@@ -9,3 +9,8 @@ https://app.pluralsight.com/library/courses/web-form-accessible
 We need to get some repetition on Foundation and media queries in general, so we set that up also as a fun side thing
 
 ### Notes
+In Foundation 5 we imported the individual sass files, like this:  
+http://foundation.zurb.com/sites/docs/v/5.5.3/using-sass.html
+
+But in Foundation 6 we instead include the mixins:  
+http://foundation.zurb.com/sites/docs/sass.html#adjusting-css-output
