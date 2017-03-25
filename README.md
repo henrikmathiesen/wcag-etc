@@ -17,3 +17,8 @@ http://foundation.zurb.com/sites/docs/sass.html#adjusting-css-output
 
 Imports (as I use them), can not use variables, that I dont like  
 http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import
+
+## Express vs Connect
+
+"Use Express for web apps", "It can do the same things as connect"  
+http://stackoverflow.com/questions/5284340/what-is-node-js-connect-express-and-middleware  

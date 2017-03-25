@@ -2,13 +2,19 @@
   "name": "wcag-etc",
   "version": "1.0.0",
   "scripts": {
-    "prestart": "npm run copy:indexhtml && npm run sass:dev",
-    "start": "concurrently \"npm run sass:watch\" \"npm run serve\"",
-    "copy:indexhtml": "copyfiles -f app/index.html bld",
+    "prestart": "npm run copy:indexhtml && npm run build:dev",
+    "start": "concurrently \"npm run sass:watch\" \"npm run serve:dev\"",
+    "prerelease": "npm run copy:indexhtml && npm run build:prod",
+    "release": "npm run serve:prod",
+    "":"==============================================================================================================",
+    "build:dev": "npm run sass:dev",
+    "build:prod": "npm run sass:prod",
     "sass:dev": "node-sass --source-map-embed --source-map-contents app/app.scss bld/app.css",
     "sass:prod": "node-sass --output-style compressed app/app.scss bld/app.css",
     "sass:watch": "onchange \"app/**/*.scss\" -- npm run sass:dev",
-    "serve": "node server.js"
+    "copy:indexhtml": "copyfiles -f app/index.html bld",
+    "serve:dev": "node server.js",
+    "serve:prod": "cross-env NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +25,7 @@
     "compression": "1.6.2",
     "concurrently": "3.4.0",
     "copyfiles": "1.2.0",
+    "cross-env": "3.2.4",
     "express": "4.15.2",
     "foundation-sites": "6.3.1",
     "node-sass": "4.5.1",
