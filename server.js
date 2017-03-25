@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var compress = require('compression');
 
-var publicFolder = '/bld';
+var publicFolder = '/public';
 var isProduction = process.env.NODE_ENV === 'production';
 
 if(isProduction) {
