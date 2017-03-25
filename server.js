@@ -1,8 +1,13 @@
 var express = require('express');
 var app = express();
+var compress = require('compression');
 
 var publicFolder = '/bld';
 var isProduction = process.env.NODE_ENV === 'production';
+
+if(isProduction) {
+  app.use(compress());
+}
 
 app.use(express.static(__dirname + publicFolder));
 
