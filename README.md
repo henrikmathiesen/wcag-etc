@@ -18,7 +18,15 @@ http://foundation.zurb.com/sites/docs/sass.html#adjusting-css-output
 Imports (as I use them), can not use variables, that I dont like  
 http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import
 
-## Express vs Connect
+## Misc
+
+### Express vs Connect
 
 "Use Express for web apps", "It can do the same things as connect"  
 http://stackoverflow.com/questions/5284340/what-is-node-js-connect-express-and-middleware  
+
+### cross-env NODE_ENV=production
+Do use cross-env for cross platform/terminal support, https://www.npmjs.com/package/cross-env  
+Make sure that cross-env command is right before the script in npm scripts, like in package.json in this project  
+Issue: https://github.com/kentcdodds/cross-env/issues/13  
+Answer: https://github.com/mikechabot/cross-env-example/pull/1
