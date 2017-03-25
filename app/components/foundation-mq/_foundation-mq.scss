@@ -1,0 +1,13 @@
+.wg-foundation-mq {
+    > div {
+        padding: $global-padding;
+        background-color: $success-color;
+        display: none;
+    }
+}
+
+.wg-foundation-mq--small {
+    @include breakpoint(small) {
+        display: block!important;
+  }
+}
