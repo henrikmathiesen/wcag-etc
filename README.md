@@ -13,4 +13,7 @@ In Foundation 5 we imported the individual sass files, like this:
 http://foundation.zurb.com/sites/docs/v/5.5.3/using-sass.html
 
 But in Foundation 6 we instead include the mixins:  
-http://foundation.zurb.com/sites/docs/sass.html#adjusting-css-output
+http://foundation.zurb.com/sites/docs/sass.html#adjusting-css-output  
+
+Imports (as I use them), can not use variables, that I dont like  
+http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import
