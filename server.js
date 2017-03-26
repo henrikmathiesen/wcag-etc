@@ -15,10 +15,6 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + publicFolder + '/index.html');
 });
 
-app.get('/foundation-mq', function (req, res) {
-  res.sendfile(__dirname + publicFolder + '/foundation-mq.html');
-});
-
 app.listen(1337, function () {
   console.log('Listening on port 1337, production mode is: ' + isProduction);
 });
