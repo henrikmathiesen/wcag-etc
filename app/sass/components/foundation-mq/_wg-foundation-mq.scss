@@ -1,5 +1,5 @@
 .wg-foundation-mq {
-    margin-top: $global-margin;
+    margin-top: $global-margin * 1.5;
 
     > div {
         padding: $global-padding;
@@ -22,4 +22,16 @@
     @include breakpoint(small only) {
         display: block!important;
   }
+}
+
+.wg-foundation-mq--medium {
+     @include breakpoint(medium) {
+        display: block!important;
+  } 
+}
+
+.wg-foundation-mq--medium-only {
+       @include breakpoint(medium only) {
+        display: block!important;
+  } 
 }

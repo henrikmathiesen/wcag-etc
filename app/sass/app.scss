@@ -1,7 +1,7 @@
 @import 'fd-settings';
-@import 'settings';
+@import 'wg-settings';
 
-@import '../node_modules/foundation-sites/scss/foundation';
+@import '../../node_modules/foundation-sites/scss/foundation';
 
 @include foundation-global-styles;
 @include foundation-grid;
@@ -43,6 +43,7 @@
 @include foundation-visibility-classes;
 @include foundation-float-classes;
 
-@import 'base';
-@import 'icons-and-symbols';
-@import 'components/foundation-mq/foundation-mq';
+@import 'wg-base';
+@import 'wg-icons-and-symbols';
+@import 'components/foundation-mq/wg-foundation-mq';
+@import 'wg-helpers';
