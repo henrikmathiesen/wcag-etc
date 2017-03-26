@@ -1,33 +1,37 @@
 .wg-foundation-mq {
-    margin-top: $wg-gutter-lg;
-
     > div {
         padding: $wg-gutter-md;
         background-color: $success-color;
-        display: none;
+        opacity: 0.2;
     }
 }
 
 .wg-foundation-mq--small {
     @include breakpoint(small) {
-        display: block!important;
+        opacity: 1!important;
   }
 }
 
 .wg-foundation-mq--small-only {
     @include breakpoint(small only) {
-        display: block!important;
+        opacity: 1!important;
   }
 }
 
 .wg-foundation-mq--medium {
      @include breakpoint(medium) {
-        display: block!important;
+        opacity: 1!important;
   } 
 }
 
 .wg-foundation-mq--medium-only {
        @include breakpoint(medium only) {
-        display: block!important;
+        opacity: 1!important;
+  } 
+}
+
+.wg-foundation-mq--medium-down {
+    @include breakpoint(medium down) {
+        opacity: 1!important;
   } 
 }

@@ -14,20 +14,37 @@
   <p>
     <a href="http://foundation.zurb.com/sites/docs/media-queries.html">Docs</a>
   </p>
-  <p class="wg-child-margin-sm">
+  <p class="wg-child-margin-md">
+    <code class="wg-display-block">
+        $breakpoints: (
+          small: 0px,
+          medium: 640px,
+          large: 1024px,
+          xlarge: 1200px,
+          xxlarge: 1440px,
+        );
+    </code>
     <code class="wg-display-block">
         @include breakpoint(medium) {} // medium breakpoint and up
       </code>
     <code class="wg-display-block">
       @include breakpoint(medium only) {} // medium breakpoint to (large breakpoint - 1)
     </code>
+    <code class="wg-display-block">
+      @include breakpoint(medium down) {} // small breakpoint to (large breakpoint - 1)
+    </code>
   </p>
-  <div class="wg-foundation-mq wg-child-margin-md">
+  <div class="wg-foundation-mq wg-margin-top-lg wg-child-margin-md">
     <div class="wg-foundation-mq--small">Iam visible on <strong>'small'</strong>, that means 0&mdash;<span class="wg-text-symbol">&infin;</span></div>
     <div class="wg-foundation-mq--small-only">Iam visible on <strong>'small only'</strong>, that means 0&mdash;639</div>
     <div class="wg-foundation-mq--medium">Iam visible on <strong>'medium'</strong>, that means 640&mdash;<span class="wg-text-symbol">&infin;</span></div>
     <div class="wg-foundation-mq--medium-only">Iam visible on <strong>'medium only'</strong>, that means 640&mdash;1023</div>
+    <div class="wg-foundation-mq--medium-down">Iam visible on <strong>'medium down'</strong>, that means 0&mdash;1023</div>
   </div>
+
+  <p class="wg-margin-top-lg">
+    'Medium' is a range, and it is important that the design looks good within the whole range
+  </p>
 
 </body>
 
