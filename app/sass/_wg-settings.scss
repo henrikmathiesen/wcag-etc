@@ -1,5 +1,8 @@
 // APP SETTINGS
 
+$global-flexbox: true;
+$grid-row-width: rem-calc(960);
+
 // gutter
 
 $wg-gutter-sm: $global-padding * 0.5;
