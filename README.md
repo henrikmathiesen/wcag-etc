@@ -1,5 +1,7 @@
 # wcag-etc
 
+https://henrikmathiesen.github.io/wcag-etc/
+
 ## We focus on WCAG, following along 3 Pluralsight courses:  
 https://app.pluralsight.com/library/courses/web-accessibility-getting-started  
 https://app.pluralsight.com/library/courses/web-accessibility-meeting-guidelines  
