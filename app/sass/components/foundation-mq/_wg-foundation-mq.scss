@@ -1,14 +1,10 @@
 .wg-foundation-mq {
-    margin-top: $global-margin * 1.5;
+    margin-top: $wg-gutter-lg;
 
     > div {
-        padding: $global-padding;
+        padding: $wg-gutter-md;
         background-color: $success-color;
         display: none;
-    }
-
-    > div + div {
-        margin-top: $global-margin;
     }
 }
 

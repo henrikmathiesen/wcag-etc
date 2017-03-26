@@ -1,3 +1,15 @@
 .wg-display-block {
     display: block;
 }
+
+.wg-child-margin-md {
+    > * + * {
+        margin-top:$wg-gutter-md;
+    }
+}
+
+.wg-child-margin-sm {
+    > * + * {
+        margin-top:$wg-gutter-sm;
+    }
+}
