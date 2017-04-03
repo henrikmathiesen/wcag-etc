@@ -9,29 +9,34 @@
 .wg-foundation-mq--small {
     @include breakpoint(small) {
         opacity: 1!important;
+        border: $box-border-primary;
   }
 }
 
 .wg-foundation-mq--small-only {
     @include breakpoint(small only) {
         opacity: 1!important;
+        border: $box-border-primary;
   }
 }
 
 .wg-foundation-mq--medium {
      @include breakpoint(medium) {
         opacity: 1!important;
+        border: $box-border-primary;
   } 
 }
 
 .wg-foundation-mq--medium-only {
        @include breakpoint(medium only) {
         opacity: 1!important;
+        border: $box-border-primary;
   } 
 }
 
 .wg-foundation-mq--medium-down {
     @include breakpoint(medium down) {
         opacity: 1!important;
+        border: $box-border-primary;
   } 
 }
