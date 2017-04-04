@@ -4,3 +4,18 @@
     position: relative;
     top: 4px;
 }
+
+.wg-header-link-icon {
+    position: relative;
+    top: 4px;
+
+    opacity: 0.25;
+
+    &:hover {
+        opacity: 1.0;
+    }
+
+    &:active {
+        top:6px;
+    }
+}
