@@ -24,16 +24,18 @@
 
       <h2>Accessibility concerns <a id="accessibility-concerns" class="wg-header-link-icon" href="#accessibility-concerns">#</a></h2>
       <p>
-        It is estimated that 1/5 of the population has some sort of disibility; vision impairment, body motor impairment or cognitive issues. 
-        There are also "situational disabilities" like weak internet connection, a small viewing device, an old device/browser, bright light or a dark envirionment, and also being in a stressfull situation.
+        It is estimated that 1/5 of the population has some sort of disibility; vision impairment, body motor impairment or cognitive
+        issues. There are also "situational disabilities" like weak internet connection, a small viewing device, an old device/browser,
+        bright light or a dark envirionment, and also being in a stressfull situation.
       </p>
       <p>
-        Accessibility is the practice of making a site or an app usable for the widest range of people. We can not assume that everybody uses an interface the way we do. 
-        Some people are blind or partially blind and use screen readers, some people are color blind, some people use only the keyboard for navigation because using a mouse
-        is difficult for them.
+        Accessibility is the practice of making a site or an app usable for the widest range of people. We can not assume that everybody
+        uses an interface the way we do. Some people are blind or partially blind and use screen readers, some people are
+        color blind, some people use only the keyboard for navigation because using a mouse is difficult for them.
       </p>
       <p>
-        Making an interface accesable for everyone is "the right thing to do", it also helps with search enginge optimazation, and in some countries it is actually the law.
+        Making an interface accesable for everyone is "the right thing to do", it also helps with search enginge optimazation, and
+        in some countries it is actually the law.
       </p>
 
       <h2>Planning for accessibility <a id="planning-for-accessibility" class="wg-header-link-icon" href="#planning-for-accessibility">#</a></h2>
@@ -50,39 +52,66 @@
 
       <h3>Responsive design</h3>
       <p>
-        Making apps and sites respond to different viewports is a part of accessibility.
-        There are also other things to consider, like color contrast helping users
-        in a bright envirionment and simplistic interfaces helping people in a busy envirionment.
+        Making apps and sites respond to different viewports is a part of accessibility. There are also other things to consider,
+        like color contrast helping users in a bright envirionment and simplistic interfaces helping people in a busy envirionment.
       </p>
 
       <h3>Color</h3>
       <p>
-        1 in 12 men and 1 in 200 woman are color blind, that means roughly 5% of the population.
-        Color blindness is a complex matter, but it breaks down to people having difficulties
-        distinguish between colors. The most common is red/green deficiencies.
+        1 in 12 men and 1 in 200 woman are color blind, that means roughly 5% of the population. Color blindness is a complex matter,
+        but it breaks down to people having difficulties distinguish between colors. The most common is red/green deficiencies.
       </p>
       <p>
-        The take away is, dont rely soley on color to convey messages and design hierchy.
-        Complement it with text or symbols.
+        The take away is, dont rely soley on color to convey messages and design hierchy. Complement it with text or symbols.
       </p>
       <p>
-        Also take into considoration that different display displays colors differently, for
-        example an high quality monitor might distinguish our colors fine but the colors
-        looks almost the same on a low end monitor. Also the lighting in the environment
+        Also take into considoration that different display displays colors differently, for example an high quality monitor might
+        distinguish our colors fine but the colors looks almost the same on a low end monitor. Also the lighting in the environment
         impacts colors. Contrast helps!
       </p>
 
       <h3>Typography</h3>
       <p>
-        It is very important. The characters should be easely distinguishable but not too large.
-        Also think about color contrast and contrast between bold and normal.
+        It is very important. The characters should be easely distinguishable but not too large. Also think about color contrast
+        and contrast between bold and normal.
       </p>
       <p>
         A good body copy is 16-20px, <a href="https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/">but better to convert them to REM with SASS</a>,
         Zurb Foundation has such a built in mixin, rem-calc();
       </p>
       <p>
-        Line length should be 45-75 characters. Line height should be about 125 procent of text size. Justified text should be avoided. Avoid ALL CAPS.
+        Line length should be 45-75 characters. Line height should be about 125 procent of text size. Justified text should be avoided.
+        Avoid ALL CAPS.
+      </p>
+
+      <h3>Form Design</h3>
+      <p>
+        Clearly communicate required fields and formats rules (do not soley rely on color). Every form field should have an assosiated
+        label (label for input id), do not use placeholder as label (since its lost on focus) but placeholder can be used
+        to examplifie format. Communicate errors, and again, do not soley rely on color.
+      </p>
+
+      <h3>Touch Targets</h3>
+      <p>
+        Design the touch target size to minimum about 45 x 45 px, so it is easy to hit with a finger tip. There should also be enough space between touch targets.
+      </p>
+
+      <h3>Focus and Active Indicators</h3>
+      <p>
+        Some users use only the keyboard for navigation, they need a clear indikator of where focus is on the page. Browsers implements focus indikation behavior
+        so do not override that and do not hide the indikators with css.
+      </p>
+
+      <h3>Motion</h3>
+      <p>
+        Some people experience motion sickness and similar because of animations. Avoid flashy design. Could also implement a feature where users can turn off animations.
+      </p>
+
+      <h3>Designing for Crisis</h3>
+      <p>
+        Apps and sites are often designed to fit the ideal user, a happy and calm person with all the time in the world. That not always the case.
+        We should design with crisis driven personas in mind. The argument is that if a person in a crisis sitation can navigate our site
+        then everyone can as well.
       </p>
 
     </div>
