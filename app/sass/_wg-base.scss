@@ -1,5 +1,5 @@
 body {
-    padding: $wg-gutter-xl;
+    padding: $wg-gutter-xxl;
 }
 
 a {
@@ -8,4 +8,8 @@ a {
     &:active {
         top: 2px;
     }
+}
+
+h2 {
+    margin-top: $wg-gutter-lg;
 }
