@@ -5,6 +5,11 @@ $grid-row-width: rem-calc(960);
 
 // gutter
 
+$grid-column-gutter: (
+  small: 10px,
+  medium: 20px,
+);
+
 $wg-gutter-sm: $global-padding * 0.5;
 $wg-gutter-md: $global-padding;
 $wg-gutter-lg: $global-padding * 1.5;

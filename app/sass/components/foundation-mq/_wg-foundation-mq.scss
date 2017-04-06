@@ -40,3 +40,12 @@
         border: $box-border-primary;
   } 
 }
+
+.wg-foundation-mq-row {
+    > .column {
+        background-color: $warning-color;
+        > div {
+            background-color: $secondary-color;
+        }
+    }
+}
