@@ -6,6 +6,8 @@
     "start": "concurrently \"npm run sass:watch\" \"npm run serve:dev\"",
     "prerelease": "npm run build:prod",
     "release": "npm run serve:prod",
+    "deploy": "npm run prerelease && gh-pages -d public",
+    "clean-gh-pages": "rm -rf node_modules/gh-pages/.cache",
     "": "==============================================================================================================",
     "build:dev": "npm run sass:dev",
     "build:prod": "npm run sass:prod && npm run css:autoprefixer",
@@ -14,9 +16,7 @@
     "sass:watch": "onchange \"app/**/*.scss\" -- npm run sass:dev",
     "css:autoprefixer": "postcss --no-map -u autoprefixer --autoprefixer.browsers \"last 3 versions\" -r public/bld/app.css",
     "serve:dev": "node server.js",
-    "serve:prod": "cross-env NODE_ENV=production node server.js",
-    "deploy": "npm run prerelease && gh-pages -d public",
-    "clean-gh-pages": "rm -rf node_modules/gh-pages/.cache"
+    "serve:prod": "cross-env NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
