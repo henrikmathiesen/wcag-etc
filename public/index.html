@@ -93,39 +93,76 @@
 
       <h3>Touch Targets</h3>
       <p>
-        Design the touch target size to minimum about 45 x 45 px, so it is easy to hit with a finger tip. There should also be enough space between touch targets.
+        Design the touch target size to minimum about 45 x 45 px, so it is easy to hit with a finger tip. There should also be enough
+        space between touch targets.
       </p>
 
       <h3>Focus and Active Indicators</h3>
       <p>
-        Some users use only the keyboard for navigation, they need a clear indikator of where focus is on the page. Browsers implements focus indikation behavior
-        so do not override that and do not hide the indikators with css.
+        Some users use only the keyboard for navigation, they need a clear indikator of where focus is on the page. Browsers implements
+        focus indikation behavior so do not override that and do not hide the indikators with css.
       </p>
 
       <h3>Motion</h3>
       <p>
-        Some people experience motion sickness and similar because of animations. Avoid flashy design. Could also implement a feature where users can turn off animations.
+        Some people experience motion sickness and similar because of animations. Avoid flashy design. Could also implement a feature
+        where users can turn off animations.
       </p>
 
       <h3>Designing for Crisis</h3>
       <p>
-        Apps and sites are often designed to fit the ideal user, a happy and calm person with all the time in the world. That not always the case.
-        We should design with crisis driven personas in mind. The argument is that if a person in a crisis sitation can navigate our site
-        then everyone can as well.
+        Apps and sites are often designed to fit the ideal user, a happy and calm person with all the time in the world. That not
+        always the case. We should design with crisis driven personas in mind. The argument is that if a person in a crisis
+        sitation can navigate our site then everyone can as well.
       </p>
 
       <!-- Todo -->
       <h2>Coding for Accessibility <a id="coding-for-accessibility" class="wg-header-link-icon" href="#coding-for-accessibility">#</a></h2>
       <p>
         Proper code is at the heart of our accessibility efforts. Key points here are: proper semantics, dont use text as images,
-        add alt attributes for images, accesible from a keyboard, performance.
+        add alt attributes for images, accessible from a keyboard, performance.
       </p>
       <h3>Proper document structure</h3>
 
-      <h2>Testing <a id="testing" class="wg-header-link-icon" href="#testing">#</a></h2>
+      <h2>Testing, Resources and Tools <a id="testing-resources-and-tools" class="wg-header-link-icon" href="#testing-resources-and-tools">#</a></h2>
       <p>
-        Accessibility is about the human experience. It is ideal to test with many users that matches the personas we set up in the planning phase.
-        An easy way to test for accessibility is simply stop using a mouse.
+        Accessibility is about the human experience. It is ideal to test with many users that matches the personas we set up in the
+        planning phase. An easy way to test for accessibility is simply stop using a mouse. There are a number of resources
+        and tools to help us make our sites and apps more accessible.
+      </p>
+      <h3>WCAG 2.0 from W3C</h3>
+      <p>
+        Intended for Web developers, Web designers, Web Editors, Content Management System developers, Web accessibility tool developers.
+      </p>
+      <p>
+        There are 12 guidelines devided into 4 areas: Perceivable, Operable, Understandable, Robust. It has has 3 levels
+        of success conformance: A (minimum), AA (Mid-Level), AAA (Highest Level).
+      </p>
+      <h4>Perceivable</h4>
+      <p>
+        Users must be able to perceive the information. We need to provide text alternatives for any non text content. 
+        We also need to make the content adaptable so it can be presented in different ways, for example larger text
+        or read by a screen reader. We need to think about color contrast and typography, use more than color to
+        convey meaning, make it easy to see and hear content and provide audio controls for audio longer than 3 seconds.
+      </p>
+      <h4>Operable</h4>
+      <p>
+        Users must be able to operate all user interface controls. Make the interface keyboard accessible, use links and
+        buttons properly, use logical form structure. Wire up propert events with JavaScript and add ARIA roles and attributes.
+        Provide the user enough time to understand and use the interface. Dont cause seizures, avoid anything that flashes
+        more than 3 times a second. User proper semantic for heading. Add "Skip to Main Content" link. Tabable controls
+        (links, buttons, form controls) should have the proper focus and active state.
+      </p>
+      <h4>Understandable</h4>
+      <p>
+        Users must be able to understand the information and user interface. Add the proper lang attribute to the HTML tag
+        and to any sub section that contains a different language. Add abbreviations with title attributes so users can get
+        the full meaning of the abbreviation. Make the interface appear and operate in predictible ways. Make forms easy
+        to fill out and help the user with validation.
+      </p>
+      <h4>Robust</h4>
+      <p>
+        The site should work in a wide variety of browsers and assistive technoligy. Add ARIA when needed.
       </p>
       <h3>Resources</h3>
       <ul>
