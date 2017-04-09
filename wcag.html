@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WCAG - WCAG etc">
+  <title>WCAG - WCAG etc</title>
+  <link rel="stylesheet" href="bld/app.css">
+</head>
+
+<body>
+  <div class="row">
+    <div class="column small-12">
+      <h1>WCAG</h1>
+      <p>
+          Web Content Accessibility Guidelines
+      </p>
+
+      <h2>Accessibility concerns <a id="accessibility-concerns" class="wg-header-link-icon" href="#accessibility-concerns">#</a></h2>
+      <p>
+        It is estimated that 1/5 of the population has some sort of disibility; vision impairment, body motor impairment or cognitive
+        issues. There are also "situational disabilities" like weak internet connection, a small viewing device, an old device/browser,
+        bright light or a dark envirionment, and also being in a stressfull situation.
+      </p>
+      <p>
+        Accessibility is the practice of making a site or an app usable for the widest range of people. We can not assume that everybody
+        uses an interface the way we do. Some people are blind or partially blind and use screen readers, some people are
+        color blind, some people use only the keyboard for navigation because using a mouse is difficult for them.
+      </p>
+      <p>
+        Making an interface accesable for everyone is "the right thing to do", it also helps with search enginge optimazation, and
+        in some countries it is actually the law.
+      </p>
+
+      <h2>Planning for accessibility <a id="planning-for-accessibility" class="wg-header-link-icon" href="#planning-for-accessibility">#</a></h2>
+      <ul>
+        <li>Have it in mind from the beginning</li>
+        <li>Set up goals, get everyone on the same page</li>
+        <li>Put someone in charge of accessibility</li>
+        <li>Evaluate tools and frameworks</li>
+        <li>Do research on best practices</li>
+        <li>Create different user personas</li>
+      </ul>
+
+      <h2>Designing for Accessibility <a id="designing-for-accessibility" class="wg-header-link-icon" href="#designing-for-accessibility">#</a></h2>
+
+      <h3>Responsive design</h3>
+      <p>
+        Making apps and sites respond to different viewports is a part of accessibility. There are also other things to consider,
+        like color contrast helping users in a bright envirionment and simplistic interfaces helping people in a busy envirionment.
+      </p>
+
+      <h3>Color</h3>
+      <p>
+        1 in 12 men and 1 in 200 woman are color blind, that means roughly 5% of the population. Color blindness is a complex matter,
+        but it breaks down to people having difficulties distinguish between colors. The most common is red/green deficiencies.
+      </p>
+      <p>
+        The take away is, dont rely soley on color to convey messages and design hierchy. Complement it with text or symbols.
+      </p>
+      <p>
+        Also take into considoration that different display displays colors differently, for example an high quality monitor might
+        distinguish our colors fine but the colors looks almost the same on a low end monitor. Also the lighting in the environment
+        impacts colors. Contrast helps!
+      </p>
+
+      <h3>Typography</h3>
+      <p>
+        It is very important. The characters should be easely distinguishable but not too large. Also think about color contrast
+        and contrast between bold and normal.
+      </p>
+      <p>
+        A good body copy is 16-20px, <a href="https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/">but better to convert them to REM with SASS</a>,
+        Zurb Foundation has such a built in mixin, rem-calc();
+      </p>
+      <p>
+        Line length should be 45-75 characters. Line height should be about 125 procent of text size. Justified text should be avoided.
+        Avoid ALL CAPS.
+      </p>
+
+      <h3>Form Design</h3>
+      <p>
+        Clearly communicate required fields and formats rules (do not soley rely on color). Every form field should have an assosiated
+        label (label for input id), do not use placeholder as label (since its lost on focus) but placeholder can be used
+        to examplifie format. Communicate errors, and again, do not soley rely on color.
+      </p>
+
+      <h3>Touch Targets</h3>
+      <p>
+        Design the touch target size to minimum about 45 x 45 px, so it is easy to hit with a finger tip. There should also be enough
+        space between touch targets.
+      </p>
+
+      <h3>Focus and Active Indicators</h3>
+      <p>
+        Some users use only the keyboard for navigation, they need a clear indikator of where focus is on the page. Browsers implements
+        focus indikation behavior so do not override that and do not hide the indikators with css.
+      </p>
+
+      <h3>Motion</h3>
+      <p>
+        Some people experience motion sickness and similar because of animations. Avoid flashy design. Could also implement a feature
+        where users can turn off animations.
+      </p>
+
+      <h3>Designing for Crisis</h3>
+      <p>
+        Apps and sites are often designed to fit the ideal user, a happy and calm person with all the time in the world. That not
+        always the case. We should design with crisis driven personas in mind. The argument is that if a person in a crisis
+        sitation can navigate our site then everyone can as well.
+      </p>
+
+      <!-- ======================== Todo ======================== -->
+      <h2>Coding for Accessibility <a id="coding-for-accessibility" class="wg-header-link-icon" href="#coding-for-accessibility">#</a></h2>
+      <p>
+        Proper code is at the heart of our accessibility efforts. Key points here are: proper semantics, dont use text as images,
+        add alt attributes for images, accessible from a keyboard, performance.
+      </p>
+      <h3>Proper document structure</h3>
+      <!-- ======================== /Todo ======================== -->
+
+      <h2>Testing, Resources and Tools <a id="testing-resources-and-tools" class="wg-header-link-icon" href="#testing-resources-and-tools">#</a></h2>
+      <p>
+        Accessibility is about the human experience. It is ideal to test with many users that matches the personas we set up in the
+        planning phase. An easy way to test for accessibility is to simply stop using a mouse. There are a number of resources
+        and tools to help us make our sites and apps more accessible.
+      </p>
+      <h3>WCAG 2.0 from W3C</h3>
+      <p>
+        Intended for Web developers, Web designers, Web Editors, Content Management System developers, Web accessibility tool developers.
+      </p>
+      <p>
+        There are 12 guidelines devided into 4 areas (POUR): Perceivable, Operable, Understandable, Robust. It has has 3 levels
+        of compliance: A (minimum), AA (Mid-Level), AAA (Highest Level).
+      </p>
+      <h4>Perceivable</h4>
+      <p>
+        Users must be able to perceive the information. We need to provide text alternatives for any non text content. 
+        We also need to make the content adaptable so it can be presented in different ways, for example larger text
+        or read by a screen reader. We need to think about color contrast and typography, use more than color to
+        convey meaning, make it easy to see and hear content and provide audio controls for audio longer than 3 seconds.
+      </p>
+      <h4>Operable</h4>
+      <p>
+        Users must be able to operate all user interface controls. Make the interface keyboard accessible, use links and
+        buttons properly, use logical form structure. Wire up propert events with JavaScript and add ARIA roles and attributes.
+        Provide the user enough time to understand and use the interface. Dont cause seizures, avoid anything that flashes
+        more than 3 times a second. User proper semantic for heading. Add "Skip to Main Content" link. Tabable controls
+        (links, buttons, form controls) should have the proper focus and active state.
+      </p>
+      <h4>Understandable</h4>
+      <p>
+        Users must be able to understand the information and user interface. Add the proper lang attribute to the HTML tag
+        and to any sub section that contains a different language. Add abbreviations with title attributes so users can get
+        the full meaning of the abbreviation. Make the interface appear and operate in predictible ways. Make forms easy
+        to fill out and help the user with validation.
+      </p>
+      <h4>Robust</h4>
+      <p>
+        The site should work in a wide variety of browsers and assistive technoligy. Add ARIA when needed.
+      </p>
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="https://www.w3.org/TR/WCAG20/">W3C - WCAG 2.0</a></li>
+        <li><a href="https://www.w3.org/WAI/train.html">W3C - Web Accessibility Tutorials and Presentations</a></li>
+        <li><a href="https://www.w3.org/WAI/WCAG20/quickref/">W3C - How to Meet WCAG 2.0, quick reference</a></li>
+        <li><a href="http://webaim.org">WebAIM - Web Accessibility In Mind</a></li>
+        <li><a href="http://a11yproject.com/">The A11Y Project - A community-driven effort to make web accessibility easier</a></li>
+        <li><a href="https://bitsofco.de/the-accessibility-cheatsheet/">Bits of Code - The Accessibility Cheatsheet</a></li>
+        <li><a href="https://www.wuhcag.com/wcag-checklist/">Wuhcag - Checklist</a></li>
+        <li lang="sv"><a href="https://webbriktlinjer.se/">Webbriktlinjer för offentlig sektor (swedish)</a></li>
+        <li><a href="https://styleguide.svt.se/code/accessibility-checklist.html">Checklist from SVT</a></li>
+        <li><a href="https://dylanb.github.io/periodic-aria-roles.html">Periodic Table of ARIA 1.0 Roles</a></li>
+        <li><a href="https://dylanb.github.io/periodic-aria-attributes.html">Periodic Table of ARIA 1.0 attributes</a></li>
+        <li><a href="https://a11ywins.tumblr.com/">Collection of accessible web sites, great place to be inspired</a></li>
+      </ul>
+      <h3>Website Tools</h3>
+      <ul>
+        <li><a href="http://wave.webaim.org/">Wave Web Aim - Analyze Your Webpage</a></li>
+        <li><a href="https://tenon.io/">Tenon - Analyze Your Webpage</a></li>
+        <li><a href="http://www.cynthiasays.com/">Cynthia Says - Test your site</a></li>
+      </ul>
+      <h3>Tools</h3>
+      <ul>
+        <li><a href="http://www.freedomscientific.com/Products/Blindness/JAWS">JAWS is a popular screen reader with a free trial</a></li>
+        <li><a href="https://www.nvaccess.org/">NVDA, free screen reader</a></li>
+        <li><a href="https://www.paciellogroup.com/resources/contrastanalyser/">Colour Contrast Analyser</a></li>
+        <li><a href="https://www.npmjs.com/package/gulp-accessibility">gulp-accessibility</a></li>
+        <li><a href="https://chrome.google.com/webstore/detail/siteimprove-accessibility/efcfolpjihicnikpmhnmphjhhpiclljc">Site Improve Chrome Extension (recommended)</a></li>
+        <li><a href="​https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=sv">Accessibility Chrome Extension</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
