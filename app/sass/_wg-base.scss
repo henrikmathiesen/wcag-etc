@@ -13,3 +13,7 @@ a {
 h2 {
     margin-top: $wg-gutter-lg;
 }
+
+h2.small-font {
+    font-size: rem-calc(map-deep-get($header-styles, small, h2, font-size));
+}
