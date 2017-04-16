@@ -17,3 +17,12 @@
         margin-top:$wg-gutter-sm;
     }
 }
+
+.wg-reset-props {
+    all:initial !important;
+
+    // This resets h5 and p to display inline for some reason ...
+    // > * {
+    //     all:initial !important;
+    // }
+}
