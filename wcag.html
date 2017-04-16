@@ -14,7 +14,7 @@
     <div class="column small-12">
       <h1>WCAG</h1>
       <p>
-          Web Content Accessibility Guidelines
+        Web Content Accessibility Guidelines
       </p>
 
       <h2>Accessibility concerns <a id="accessibility-concerns" class="wg-header-link-icon" href="#accessibility-concerns">#</a></h2>
@@ -118,6 +118,54 @@
         add alt attributes for images, accessible from a keyboard, performance.
       </p>
       <h3>Proper document structure</h3>
+      <p>
+        Use the right tag for the job. If we remove the CSS, the page should still render in an logical order and with a clear hierchy.
+        h1-h6 are critical for hierchy, they show how sections relate to one another and also provide a target that screen
+        readers can use to jump from section to section. h1-h6 should be used in the proper order, h3 for example should
+        have a h2 parent. Unordered lists, ordered lists and description lists are also critical to the document hierchy,
+        use description lists when structure for description are needed (<a href="wcag-lists.html">see list examples</a>).
+      </p>
+      <p>
+        Use semantic that makes navigating the interface with a keyboard easier. For example if the interface is having a main navigation
+        at the top, a side navigation at the left and main content in the middle, the tab order should be first the main
+        navigation then the main content and the side navigation last.
+      </p>
+      <h3>Images</h3>
+      <p>
+        Images that are used purely for design and do not communicate content to the user can be used as CSS backgrounds or give it, 
+        and empty alt attribute. However images in content that does communicate something to the
+        user must be handled with accessibility in mind, they need to have an alt attribut that provides a description, keep
+        the description short and to the point, it should communicate what the image is trying to say.
+      </p>
+      <p>
+        For more complex images, like a diagram, we can provide a long description (longdesc="graph.txt"), the value of the attribute
+        can be a text file, a link to another page or a link to a section on the same page (it is ok to hide it with display:none).
+        However, the browser support longdesc is not good at this point (sep, 2015), therefor it is best to provide a plain
+        old link to the long description. To do this right we need an aria attribute.
+      </p>
+      <h4>aria-describedby</h4>
+      <p>
+        <div>
+          <code>
+            &lt;img src="graph.jpg" aria-describedby="graph-desc" alt="Graph" /&gt;
+          </code>
+        </div>
+        <div>
+          <code>
+            &lt;a href="graph-desc.html" id="graph-desc"&gt;Get Graph Details&lt;/a&gt;
+          </code>
+        </div>
+      </p>
+      <h3>Content</h3>
+      <p>
+        All your users, no mather their profile, came for your content and they should be able to get it. Place a Skip to main content
+        link at the top of the page, when using audio, provide a transcript for people that have hearing issues, when using videos
+        provide caption. Also dont use links out of context, dont write "Read more", instead write "Read more about our products",
+        if it is crucial to the design that links say "Read more" we can insert it with a:after {content: "Read More"} 
+        in css and hide the "Read more about our products".
+      </p>
+      <h3>HTML Attributes</h3>
+
       <!-- ======================== /Todo ======================== -->
 
       <h2>Testing, Resources and Tools <a id="testing-resources-and-tools" class="wg-header-link-icon" href="#testing-resources-and-tools">#</a></h2>
@@ -131,30 +179,30 @@
         Intended for Web developers, Web designers, Web Editors, Content Management System developers, Web accessibility tool developers.
       </p>
       <p>
-        There are 12 guidelines devided into 4 areas (POUR): Perceivable, Operable, Understandable, Robust. It has has 3 levels
-        of compliance: A (minimum), AA (Mid-Level), AAA (Highest Level).
+        There are 12 guidelines devided into 4 areas (POUR): Perceivable, Operable, Understandable, Robust. It has has 3 levels of
+        compliance: A (minimum), AA (Mid-Level), AAA (Highest Level).
       </p>
       <h4>Perceivable</h4>
       <p>
-        Users must be able to perceive the information. We need to provide text alternatives for any non text content. 
-        We also need to make the content adaptable so it can be presented in different ways, for example larger text
-        or read by a screen reader. We need to think about color contrast and typography, use more than color to
-        convey meaning, make it easy to see and hear content and provide audio controls for audio longer than 3 seconds.
+        Users must be able to perceive the information. We need to provide text alternatives for any non text content. We also need
+        to make the content adaptable so it can be presented in different ways, for example larger text or read by a screen
+        reader. We need to think about color contrast and typography, use more than color to convey meaning, make it easy
+        to see and hear content and provide audio controls for audio longer than 3 seconds.
       </p>
       <h4>Operable</h4>
       <p>
-        Users must be able to operate all user interface controls. Make the interface keyboard accessible, use links and
-        buttons properly, use logical form structure. Wire up propert events with JavaScript and add ARIA roles and attributes.
-        Provide the user enough time to understand and use the interface. Dont cause seizures, avoid anything that flashes
-        more than 3 times a second. User proper semantic for heading. Add "Skip to Main Content" link. Tabable controls
-        (links, buttons, form controls) should have the proper focus and active state.
+        Users must be able to operate all user interface controls. Make the interface keyboard accessible, use links and buttons
+        properly, use logical form structure. Wire up propert events with JavaScript and add ARIA roles and attributes. Provide
+        the user enough time to understand and use the interface. Dont cause seizures, avoid anything that flashes more than
+        3 times a second. User proper semantic for heading. Add "Skip to Main Content" link. Tabable controls (links, buttons,
+        form controls) should have the proper focus and active state.
       </p>
       <h4>Understandable</h4>
       <p>
-        Users must be able to understand the information and user interface. Add the proper lang attribute to the HTML tag
-        and to any sub section that contains a different language. Add abbreviations with title attributes so users can get
-        the full meaning of the abbreviation. Make the interface appear and operate in predictible ways. Make forms easy
-        to fill out and help the user with validation.
+        Users must be able to understand the information and user interface. Add the proper lang attribute to the HTML tag and to
+        any sub section that contains a different language. Add abbreviations with title attributes so users can get the
+        full meaning of the abbreviation. Make the interface appear and operate in predictible ways. Make forms easy to fill
+        out and help the user with validation.
       </p>
       <h4>Robust</h4>
       <p>
