@@ -165,6 +165,35 @@
       </p>
       <!-- ======================== Todo ======================== -->
       <h3>HTML Attributes</h3>
+      <p>
+        To make our code accessible, there are some HTML attributes that we need to be aware of.
+      </p>
+      <ul>
+        <li>Provide the proper language attributes for the html tag, html lang="en"</li>
+        <li>If text content in another section of the page have a different language, provide lang attribute for that tag also</li>
+        <li>Provide alternative text for image, as described above</li>
+        <li>When using abbreviations, provide a title attribute showing the full word</li>
+        <li>When using forms, use label for with a matching id</li>
+        <li>When using forms, use the required attribute for required fields</li>
+        <li>Use tabindex="0" if using non tabable controls like a span, 0 means tab order is in normal document flow</li>
+      </ul>
+      <div class="wg-child-margin-top-sm">
+        <div>
+          <code>&lt;html lang="en"&gt;...&lt;/html&gt</code>
+        </div>
+        <div>
+          <code>&lt;blockquote lang="fr"&gt;...&lt;/blockquote&gt;</code>
+        </div>
+        <div>
+          <code>&lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;</code>
+        </div>
+        <div>
+          <div><code>&lt;form&gt;</code></div>
+          <div><code>&lt;label for="myform-firstname"&gt;First Name&lt;/label&gt;</code></div>
+          <div><code>&lt;input type="text" id="myform-firstname" /&gt;</code></div>
+          <div><code>&lt;/form&gt;</code></div>
+        </div>
+      </div>
 
       <!-- ======================== /Todo ======================== -->
 
