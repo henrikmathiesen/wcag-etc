@@ -2,20 +2,41 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Forms - WCAG etc">
-  <title>Forms - WCAG etc</title>
-  <link rel="stylesheet" href="bld/app.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Forms - WCAG etc">
+    <title>Forms - WCAG etc</title>
+    <link rel="stylesheet" href="bld/app.css">
 </head>
 
 <body>
-  <div class="row">
-    <div class="column small-12">
-      <h1>Forms - WCAG etc</h1>
-      
+    <div class="row">
+        <div class="column small-12">
+            <h1>Forms - WCAG etc</h1>
+            <form>
+                <fieldset>
+                    <legend>Billing Adress</legend>
+                    <label for="billing-adress">Adress</label>
+                    <input type="text" id="billing-adress" name="billing-adress" />
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="name@organization.x" />
+                    <input id="newsletter" type="checkbox" name="newsletter" checked /><label for="newsletter">Send me news</label>
+                </fieldset>
+                <!-- In foundation fieldset are not styled, to style them use the fieldset class -->
+                <fieldset class="fieldset">
+                    <legend>Lorem ipsum</legend>
+                    <label>Dolores es sita
+                        <input type="text" name="lorem" placeholder="Met ipsum dol" />
+                    </label>
+                </fieldset>
+            </form>
+            <p>
+                <a href="http://stackoverflow.com/questions/774054/should-i-put-input-tags-inside-a-label-tag">
+                    Its ok to put the associated input inside the label and omit the for and id attribute.
+                </a>
+            </p>
+        </div>
     </div>
-  </div>
 </body>
 
 </html>
