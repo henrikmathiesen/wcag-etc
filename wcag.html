@@ -111,7 +111,6 @@
         sitation can navigate our site then everyone can as well.
       </p>
 
-      <!-- ======================== Todo ======================== -->
       <h2>Coding for Accessibility <a id="coding-for-accessibility" class="wg-header-link-icon" href="#coding-for-accessibility">#</a></h2>
       <p>
         Proper code is at the heart of our accessibility efforts. Key points here are: proper semantics, dont use text as images,
@@ -132,10 +131,10 @@
       </p>
       <h3>Images</h3>
       <p>
-        Images that are used purely for design and do not communicate content to the user can be used as CSS backgrounds or give it, 
-        and empty alt attribute. However images in content that does communicate something to the
-        user must be handled with accessibility in mind, they need to have an alt attribut that provides a description, keep
-        the description short and to the point, it should communicate what the image is trying to say.
+        Images that are used purely for design and do not communicate content to the user can be used as CSS backgrounds or give
+        it, and empty alt attribute. However images in content that does communicate something to the user must be handled
+        with accessibility in mind, they need to have an alt attribut that provides a description, keep the description short
+        and to the point, it should communicate what the image is trying to say.
       </p>
       <p>
         For more complex images, like a diagram, we can provide a long description (longdesc="graph.txt"), the value of the attribute
@@ -159,12 +158,70 @@
       <h3>Content</h3>
       <p>
         All your users, no mather their profile, came for your content and they should be able to get it. Place a Skip to main content
-        link at the top of the page, when using audio, provide a transcript for people that have hearing issues, when using videos
-        provide caption. Also dont use links out of context, dont write "Read more", instead write "Read more about our products",
-        if it is crucial to the design that links say "Read more" we can insert it with a:after {content: "Read More"} 
-        in css and hide the "Read more about our products".
+        link at the top of the page, when using audio, provide a transcript for people that have hearing issues, when using
+        videos provide caption. Also dont use links out of context, dont write "Read more", instead write "Read more about
+        our products", if it is crucial to the design that links say "Read more" we can insert it with a:after {content:
+        "Read More"} in css and hide the "Read more about our products".
       </p>
       <h3>HTML Attributes</h3>
+      <p>
+        To make our code accessible, there are some HTML attributes that we need to be aware of.
+      </p>
+      <ul>
+        <li>Provide the proper language attributes for the html tag, html lang="en"</li>
+        <li>If text content in another section of the page have a different language, provide lang attribute for that tag also</li>
+        <li>Provide alternative text for image, as described above</li>
+        <li>When using abbreviations, provide a title attribute showing the full word</li>
+        <li>When using forms, use label for with a matching id</li>
+        <li>When using forms, use the required attribute for required fields</li>
+        <li>Use tabindex="0" if using non tabable controls like a span, 0 means tab order is in normal document flow</li>
+      </ul>
+      <div class="wg-child-margin-top-sm wg-margin-bottom-md">
+        <div>
+          <code>&lt;html lang="en"&gt;...&lt;/html&gt</code>
+        </div>
+        <div>
+          <code>&lt;blockquote lang="fr"&gt;...&lt;/blockquote&gt;</code>
+        </div>
+        <div>
+          <code>&lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;</code>
+        </div>
+        <div>
+          <div><code>&lt;form&gt;</code></div>
+          <div><code>&lt;label for="myform-firstname"&gt;First Name&lt;/label&gt;</code></div>
+          <div><code>&lt;input type="text" id="myform-firstname" /&gt;</code></div>
+          <div><code>&lt;/form&gt;</code></div>
+        </div>
+      </div>
+      <h3>Forms</h3>
+      <p>
+        Forms can be a little complex, but we need to make them simple and structure them in a logical order.
+        We accomplish that by using fieldset and legends, labels with for attribute and inputs with id matching the for attribute.
+      </p>
+      <p>
+        Use the proper semantic for the type of input, for example input type="email".
+      </p>
+      <p>
+        Use the required attribute when an input is required.
+      </p>
+      <p>
+        Dont use placeholder as a replacemnt for a label. Placeholder can however be used to help the user with formatting examples.
+      </p>
+      <p>
+        Add helper text where needed, dont rely on the placeholder.
+      </p>
+      <p>
+        Make sure that the taborder works (it should work if the form is structured in a logical way).
+      </p>
+      <p>
+        When a label is not needed, visually, because of the context, lets say for a search bar at the top of the page, we
+        still need to provide a label so users with screen readers can understand the context. We can hide the label with css.
+        Use the proper CSS to hide it, do not use display:none since it will hide it from screen readers as well. Instead
+        use <code class="wg-text-no-wrap">.hidden { position:absolute;left-99999px; }</code>
+      </p>
+      <p><a href="wcag-forms.html">See example of form.</a></p>
+      <!-- ======================== Todo ======================== -->
+      <h3>Keyboard Control</h3>
 
       <!-- ======================== /Todo ======================== -->
 

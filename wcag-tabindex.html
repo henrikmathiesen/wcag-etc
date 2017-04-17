@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tabindex - WCAG etc">
+  <title>Tabindex - WCAG etc</title>
+  <link rel="stylesheet" href="bld/app.css">
+</head>
+
+<body>
+  <div class="row">
+    <div class="column small-12">
+      <h1>Tabindex - WCAG etc</h1>
+      <h2 class="small-font">These elements are tabable</h2>
+      <div>
+          <button class="button">Button 1</button>
+      </div>
+      <div>
+          <button class="button">Button 2</button>
+      </div>
+      <div>
+          <a href="#">Link 1</a>
+      </div>
+      <h2 class="small-font">These elements are not tabable</h2>
+      <div>
+          <span class="button alert">Button as span</span>
+      </div>
+      <div>
+          <span class="button alert">Button as span</span>
+      </div>
+      <h2 class="small-font">These elements are tabable with a tabindex</h2>
+      <div>
+          <span class="button warning" tabindex="0">Button as span with tabindex</span>
+      </div>
+      <div>
+          <span class="button warning" tabindex="0">Button as span with tabindex</span>
+      </div>
+      <p>
+          Give them tabindex=0 to make them tabable in the normal document flow. Tab order can be changed by providing other numbers.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
