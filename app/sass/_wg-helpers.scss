@@ -6,6 +6,10 @@
     margin-top: $wg-gutter-xl;
 }
 
+.wg-margin-bottom-md {
+    margin-bottom: $wg-gutter-md;
+}
+
 .wg-child-margin-top-sm {
     > * + * {
         margin-top:$wg-gutter-sm;

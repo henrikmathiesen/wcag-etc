@@ -131,10 +131,10 @@
       </p>
       <h3>Images</h3>
       <p>
-        Images that are used purely for design and do not communicate content to the user can be used as CSS backgrounds or give it, 
-        and empty alt attribute. However images in content that does communicate something to the
-        user must be handled with accessibility in mind, they need to have an alt attribut that provides a description, keep
-        the description short and to the point, it should communicate what the image is trying to say.
+        Images that are used purely for design and do not communicate content to the user can be used as CSS backgrounds or give
+        it, and empty alt attribute. However images in content that does communicate something to the user must be handled
+        with accessibility in mind, they need to have an alt attribut that provides a description, keep the description short
+        and to the point, it should communicate what the image is trying to say.
       </p>
       <p>
         For more complex images, like a diagram, we can provide a long description (longdesc="graph.txt"), the value of the attribute
@@ -158,12 +158,11 @@
       <h3>Content</h3>
       <p>
         All your users, no mather their profile, came for your content and they should be able to get it. Place a Skip to main content
-        link at the top of the page, when using audio, provide a transcript for people that have hearing issues, when using videos
-        provide caption. Also dont use links out of context, dont write "Read more", instead write "Read more about our products",
-        if it is crucial to the design that links say "Read more" we can insert it with a:after {content: "Read More"} 
-        in css and hide the "Read more about our products".
+        link at the top of the page, when using audio, provide a transcript for people that have hearing issues, when using
+        videos provide caption. Also dont use links out of context, dont write "Read more", instead write "Read more about
+        our products", if it is crucial to the design that links say "Read more" we can insert it with a:after {content:
+        "Read More"} in css and hide the "Read more about our products".
       </p>
-      <!-- ======================== Todo ======================== -->
       <h3>HTML Attributes</h3>
       <p>
         To make our code accessible, there are some HTML attributes that we need to be aware of.
@@ -177,7 +176,7 @@
         <li>When using forms, use the required attribute for required fields</li>
         <li>Use tabindex="0" if using non tabable controls like a span, 0 means tab order is in normal document flow</li>
       </ul>
-      <div class="wg-child-margin-top-sm">
+      <div class="wg-child-margin-top-sm wg-margin-bottom-md">
         <div>
           <code>&lt;html lang="en"&gt;...&lt;/html&gt</code>
         </div>
@@ -194,6 +193,10 @@
           <div><code>&lt;/form&gt;</code></div>
         </div>
       </div>
+
+
+      <h3>Forms</h3>
+      <!-- ======================== Todo ======================== -->
 
       <!-- ======================== /Todo ======================== -->
 
