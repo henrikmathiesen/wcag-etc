@@ -25,8 +25,23 @@
                 <!-- In foundation fieldset are not styled, to style them use the fieldset class -->
                 <fieldset class="fieldset">
                     <legend>Lorem ipsum</legend>
-                    <label>Dolores es sita
-                        <input type="text" name="lorem" placeholder="Met ipsum dol" />
+                    <label class="clearfix">
+                        <span class="float-left wg-display-block">
+                            Dolores es sita
+                        </span>
+                        <span class="float-right help-text wg-display-block wg-input-invalid wg-margin-0">
+                            (Required)
+                        </span>
+                        <input type="text" name="lorem" placeholder="Met ipsum dol" required />
+                    </label>
+                    <label class="clearfix">
+                        <span class="float-left wg-display-block">
+                            Password
+                        </span>
+                        <span class="float-right help-text wg-display-block wg-input-invalid wg-margin-0">
+                            (At least 8 characters)
+                        </span>
+                        <input type="password" name="password" required />
                     </label>
                 </fieldset>
             </form>

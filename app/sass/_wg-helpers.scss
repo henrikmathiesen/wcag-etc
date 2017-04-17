@@ -1,3 +1,9 @@
+// Gutter
+
+.wg-margin-0 {
+    margin: 0;
+}
+
 .wg-margin-top-xl {
     margin-top: $wg-gutter-xl;
 }
@@ -24,13 +30,25 @@
     }
 }
 
-.wg-display-block {
-    display: block;
-}
+// Typography
 
 .wg-text-no-wrap {
     white-space: nowrap
 }
+
+// Elements
+
+.wg-display-block {
+    display: block;
+}
+
+// Form validation
+
+.wg-input-invalid {
+    color: map-get($foundation-palette, alert);
+}
+
+// Reset
 
 .wg-reset-props {
     all:initial !important;
