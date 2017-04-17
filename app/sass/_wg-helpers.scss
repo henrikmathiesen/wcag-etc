@@ -1,7 +1,3 @@
-.wg-display-block {
-    display: block;
-}
-
 .wg-margin-top-xl {
     margin-top: $wg-gutter-xl;
 }
@@ -26,6 +22,14 @@
     > * + * {
         margin-top:$wg-gutter-sm;
     }
+}
+
+.wg-display-block {
+    display: block;
+}
+
+.wg-text-no-wrap {
+    white-space: nowrap
 }
 
 .wg-reset-props {
