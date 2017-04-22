@@ -237,6 +237,10 @@
         Tab order is another area of concern. The flow of keyboard navigation should be logical, left to right and top to bottom.
         <a href="wcag-tabindex-layout.html">However there are exceptions for layout</a>.
       </p>
+      <p>
+        Dont use div or span for clickable items (they will not have a tabindex), instead use a and button. However div or span
+        can be given a tabindex by adding tabindex="0" (where 0 meens the natural document flow).
+      </p>
 
       <!-- ======================== /Todo ======================== -->
 

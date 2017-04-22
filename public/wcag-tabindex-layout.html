@@ -17,13 +17,14 @@
 
       <nav class="row">
         <div class="column small-12">
+          <a class="show-for-sr" href="#main-content">Skip to main content</a>
           <button class="button">Menu Item 1</button>
           <button class="button">Menu Item 2</button>
           <button class="button">Menu Item 3</button>
         </div>
       </nav>
       <div class="row wg-margin-top-lg wg-margin-bottom-lg">
-        <div class="small-12 medium-9 medium-push-3 columns">
+        <div id="main-content" class="small-12 medium-9 medium-push-3 columns">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat sequi a consequatur, aliquam, magnam eaque accusamus quisquam
             fuga nesciunt unde deleniti dignissimos sit culpa omnis, voluptate odio laborum veniam labore.
@@ -55,6 +56,9 @@
           <p>
             The design is accomplished by Foundations push and pull columns. Note that if using Foundations
             flex grid, we have to use <a href="http://foundation.zurb.com/sites/docs/flex-grid.html#source-ordering">another technique</a>.
+          </p>
+          <p>
+            Also note the skip to main content link, hidden visually but tabbable, on enter press next tab will focus the main content.
           </p>
         </div>
       </div>
