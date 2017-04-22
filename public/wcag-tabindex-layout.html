@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tabindex for layout - WCAG etc">
+  <title>Tabindex for layout - WCAG etc</title>
+  <link rel="stylesheet" href="bld/app.css">
+</head>
+
+<body>
+  <div class="row">
+    <div class="column small-12">
+
+      <h1>Tabindex for layout - WCAG etc</h1>
+
+      <nav class="row">
+        <div class="column small-12">
+          <button class="button">Menu Item 1</button>
+          <button class="button">Menu Item 2</button>
+          <button class="button">Menu Item 3</button>
+        </div>
+      </nav>
+      <div class="row wg-margin-top-lg wg-margin-bottom-lg">
+        <div class="small-12 medium-9 medium-push-3 columns">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat sequi a consequatur, aliquam, magnam eaque accusamus quisquam
+            fuga nesciunt unde deleniti dignissimos sit culpa omnis, voluptate odio laborum veniam labore.
+          </p>
+          <p>
+            Some more info here, <a href="#">and a link</a>.
+          </p>
+        </div>
+        <div class="small-12 medium-3 medium-pull-9 columns">
+          <aside>
+            <ul>
+              <li><a href="#">Lorem</a></li>
+              <li><a href="#">Ipsum</a></li>
+              <li><a href="#">Dolores</a></li>
+              <li><a href="#">Es sita</a></li>
+              <li><a href="#">Met</a></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <p>
+            <mark>
+              Visually, the sidebar is to the left, but in the markup it is after the main content.
+            </mark>
+            The tab order then goes through the top links, then to the main content and lastly to the side bar.
+          </p>
+          <p>
+            The design is accomplished by Foundations push and pull columns. Note that if using Foundations
+            flex grid, we have to use <a href="http://foundation.zurb.com/sites/docs/flex-grid.html#source-ordering">another technique</a>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+</body>
+
+</html>

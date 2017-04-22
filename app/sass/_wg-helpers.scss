@@ -8,19 +8,27 @@
     margin-top: $wg-gutter-xl;
 }
 
-.wg-margin-bottom-md {
-    margin-bottom: $wg-gutter-md;
+.wg-margin-top-lg {
+    margin-top:$wg-gutter-lg;
 }
 
-.wg-child-margin-top-sm {
-    > * + * {
-        margin-top:$wg-gutter-sm;
-    }
+.wg-margin-bottom-lg {
+    margin-bottom:$wg-gutter-lg;
+}
+
+.wg-margin-bottom-md {
+    margin-bottom: $wg-gutter-md;
 }
 
 .wg-child-margin-md {
     > * + * {
         margin-top:$wg-gutter-md;
+    }
+}
+
+.wg-child-margin-top-sm {
+    > * + * {
+        margin-top:$wg-gutter-sm;
     }
 }
 
