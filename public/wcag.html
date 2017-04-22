@@ -195,8 +195,8 @@
       </div>
       <h3>Forms</h3>
       <p>
-        Forms can be a little complex, but we need to make them simple and structure them in a logical order.
-        We accomplish that by using fieldset and legends, labels with for attribute and inputs with id matching the for attribute.
+        Forms can be a little complex, but we need to make them simple and structure them in a logical order. We accomplish that
+        by using fieldset and legends, labels with for attribute and inputs with id matching the for attribute.
       </p>
       <p>
         Use the proper semantic for the type of input, for example input type="email".
@@ -214,8 +214,8 @@
         Make sure that the taborder works (it should work if the form is structured in a logical way).
       </p>
       <p>
-        When a label is not needed, visually, because of the context, lets say for a search bar at the top of the page, we
-        still need to provide a label so users with screen readers can understand the context. We can hide the label with css.
+        When a label is not needed, visually, because of the context, lets say for a search bar at the top of the page, we still
+        need to provide a label so users with screen readers can understand the context. We can hide the label with css.
         Use the proper CSS to hide it, do not use display:none since it will hide it from screen readers as well. Instead
         use <code class="wg-text-no-wrap">.hidden { position:absolute;left-99999px; }</code>
       </p>
@@ -237,21 +237,72 @@
         <a href="wcag-tabindex-layout.html">However there are exceptions for layout</a>.
       </p>
       <p>
-        Dont use div or span for clickable items (they will not have a tabindex), instead use a and button. However div or span
-        can be given a tabindex by adding tabindex="0" (where 0 meens the natural document flow).
+        Dont use div or span for clickable items (they will not have a tabindex), instead use a and button. However div or span can
+        be given a tabindex by adding tabindex="0" (where 0 meens the natural document flow).
       </p>
-      <!-- ======================== Todo ======================== -->
       <h3>CSS and Accessibility</h3>
+      <p>
+        User styling will override our styles, users can for example change font, font size and contrast. It is important that the
+        content looks good under these circumstances, for example a button expanding to fit the bigger font size. Dont use
+        pixel values, use relative units instead like REM or percent.
+      </p>
+      <p>
+        Dont rely on CSS alone to present meaning, use the proper semantic (like h1-h6 for headers).
+      </p>
+      <p>
+        Sometime we want to hide content visually but make it accesable to screen readers, for example a header saying "Main Navigation".
+        We can hide this content with (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip">clip property has good browser support, but is now deprecated</a>):
+      </p>
+      <pre>
+          <code>
+            position: absolute !important;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+          </code>
+        </pre>
+      <p>
+        This is another way to do it:
+      </p>
+      <pre>
+        <code>
+          position: absolute !important;
+          top: auto !important;
+          left: -9999px !important;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+        </code>
+      </pre>
+      <p>
+        Note that display:none or visibility:hidden or width:0;height:0; will hide the element from screen readers as well.
+      </p>
 
       <h3>Performance</h3>
-
-      <!-- ======================== /Todo ======================== -->
+      <p>
+        A slow internet connection can cripple the user experience if the app has many http requests and big files to download.
+        Try to make fewer http request by bundle javascript and css files. Also use compression on images, see 
+        <a href="#testing-resources-and-tools">tools</a>.
+      </p>
+      <p>
+        Usage of image sprites is good for reducing the number of http requests and caching (every image is cached at once).
+        There are Gulp plugins for this, just google it.
+      </p>
+      <p>
+        SVG is a good option for its vector properties (scalable).
+      </p>
+      <p>
+        Critical CSS is a concept where we place CSS in header to prevent http request for external CSS, this "critical CSS"
+        is used for styling the "above the fold" content, so users get is as quickly as possible.
+        <a href="https://github.com/addyosmani/critical">Can automate it</a>.
+      </p>
 
       <h3>Progressive Enhancement</h3>
       <p>
-        Instead of designen and coding for users with modern desktop machines with the latest browsers, instead
-        target the low end users. Write well structured HTML, add a layer of CSS, and a layer of JavaScript.
-        The app should work with just the HTML, and with HTML + CSS.
+        Instead of designen and coding for users with modern desktop machines with the latest browsers, instead target the low end
+        users. Write well structured HTML, add a layer of CSS, and a layer of JavaScript. The app should work with just the
+        HTML, and with HTML + CSS.
       </p>
 
       <h2>Testing, Resources and Tools <a id="testing-resources-and-tools" class="wg-header-link-icon" href="#testing-resources-and-tools">#</a></h2>
@@ -323,6 +374,8 @@
         <li><a href="https://www.npmjs.com/package/gulp-accessibility">gulp-accessibility</a></li>
         <li><a href="https://chrome.google.com/webstore/detail/siteimprove-accessibility/efcfolpjihicnikpmhnmphjhhpiclljc">Site Improve Chrome Extension (recommended)</a></li>
         <li><a href="​https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=sv">Accessibility Chrome Extension</a></li>
+        <li><a href="http://www.jpegmini.com/">jpegmini.com</a></li>
+        <li><a href="https://tinypng.com/">tinypng.com</a></li>
       </ul>
     </div>
   </div>
