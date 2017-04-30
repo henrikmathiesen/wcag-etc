@@ -309,8 +309,34 @@
       <p>
         <mark>This is new stuff for me</mark>, so it gets its own section.
       </p>
-      <!-- TODO -->
-      <!-- /TODO -->
+      <h3>What is it?</h3>
+      <ul>
+        <li>WIA-ARIA = Web Accessibility Initiative - Accessible Rich Internet Applications</li>
+        <li>A specification developed by the W3C</li>
+        <li>Helps bring accessibility to modern sites and apps using JavaScript and Ajax</li>
+        <li>With ARIA, custom controls can be marked as widgets of different types</li>
+      </ul>
+      <p>
+        There are 2 ARIA categories: Roles and States and properties.
+      </p>
+      <h4>Roles</h4>
+      <p>
+        Roles define what a widget is or what it does. Example of roles are: menus, sliders, progress meters, modals. 
+        Roles also describe structure like: headings, regions, tables.
+      </p>
+      <h4>States and properties</h4>
+      <p>
+        State describes the current interaction state of the widget, examples: checked, disabled, selected, hidden.
+      </p>
+      <p>
+        Properties describe the charactaristic of the widget, like: drag n drop, live regions (regions that will be updated), modals (that will open)
+      </p>
+      <h3>Prefer the correct semantic over ARIA</h3>
+      <p>
+        If there is a semantic correct element for the job then use it, and it is often uneccessary to use ARIA in that case.
+        But if we must use sliders whith only divs and spans we can use ARIA semantic to better help assistive technoligy
+        undertand what it is. <a href="http://vanseodesign.com/web-design/five-rules-aria-html/">Here is some good info to read</a>.
+      </p>
 
       <h2>Testing, Resources and Tools <a id="testing-resources-and-tools" class="wg-header-link-icon" href="#testing-resources-and-tools">#</a></h2>
       <p>
