@@ -195,8 +195,8 @@
       </div>
       <h3>Forms</h3>
       <p>
-        Forms can be a little complex, but we need to make them simple and structure them in a logical order.
-        We accomplish that by using fieldset and legends, labels with for attribute and inputs with id matching the for attribute.
+        Forms can be a little complex, but we need to make them simple and structure them in a logical order. We accomplish that
+        by using fieldset and legends, labels with for attribute and inputs with id matching the for attribute.
       </p>
       <p>
         Use the proper semantic for the type of input, for example input type="email".
@@ -214,16 +214,129 @@
         Make sure that the taborder works (it should work if the form is structured in a logical way).
       </p>
       <p>
-        When a label is not needed, visually, because of the context, lets say for a search bar at the top of the page, we
-        still need to provide a label so users with screen readers can understand the context. We can hide the label with css.
+        When a label is not needed, visually, because of the context, lets say for a search bar at the top of the page, we still
+        need to provide a label so users with screen readers can understand the context. We can hide the label with css.
         Use the proper CSS to hide it, do not use display:none since it will hide it from screen readers as well. Instead
         use <code class="wg-text-no-wrap">.hidden { position:absolute;left-99999px; }</code>
       </p>
       <p><a href="wcag-forms.html">See example of form.</a></p>
-      <!-- ======================== Todo ======================== -->
       <h3>Keyboard Control</h3>
+      <p>
+        This area of accessibility is easely testable, simply stop using the mouse and see if we can use the interface.
+      </p>
+      <p>
+        Examples of users would benefit from keyboard controls: blind people, people with fine motor control issues, people with
+        a broken hand.
+      </p>
+      <p>
+        Make sure to not remove the focus indicator (input:focus{}). Also keep in mind that display:none will completly hide the
+        element, both visually and also from assistive technoligy.
+      </p>
+      <p>
+        Tab order is another area of concern. The flow of keyboard navigation should be logical, left to right and top to bottom.
+        <a href="wcag-tabindex-layout.html">However there are exceptions for layout</a>.
+      </p>
+      <p>
+        Dont use div or span for clickable items (they will not have a tabindex), instead use a and button. However div or span can
+        be given a tabindex by adding tabindex="0" (where 0 meens the natural document flow).
+      </p>
+      <h3>CSS and Accessibility</h3>
+      <p>
+        User styling will override our styles, users can for example change font, font size and contrast. It is important that the
+        content looks good under these circumstances, for example a button expanding to fit the bigger font size. Dont use
+        pixel values, use relative units instead like REM or percent.
+      </p>
+      <p>
+        Dont rely on CSS alone to present meaning, use the proper semantic (like h1-h6 for headers).
+      </p>
+      <p>
+        Sometime we want to hide content visually but make it accesable to screen readers, for example a header saying "Main Navigation".
+        We can hide this content with (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip">clip property has good browser support, but is now deprecated</a>):
+      </p>
+      <pre>
+          <code>
+            position: absolute !important;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+          </code>
+        </pre>
+      <p>
+        This is another way to do it:
+      </p>
+      <pre>
+        <code>
+          position: absolute !important;
+          top: auto !important;
+          left: -9999px !important;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+        </code>
+      </pre>
+      <p>
+        Note that display:none or visibility:hidden or width:0;height:0; will hide the element from screen readers as well.
+      </p>
 
-      <!-- ======================== /Todo ======================== -->
+      <h3>Performance</h3>
+      <p>
+        A slow internet connection can cripple the user experience if the app has many http requests and big files to download.
+        Try to make fewer http request by bundle javascript and css files. Also use compression on images, see 
+        <a href="#testing-resources-and-tools">tools</a>.
+      </p>
+      <p>
+        Usage of image sprites is good for reducing the number of http requests and caching (every image is cached at once).
+        There are Gulp plugins for this, just google it.
+      </p>
+      <p>
+        SVG is a good option for its vector properties (scalable).
+      </p>
+      <p>
+        Critical CSS is a concept where we place CSS in header to prevent http request for external CSS, this "critical CSS"
+        is used for styling the "above the fold" content, so users get it as quickly as possible.
+        <a href="https://github.com/addyosmani/critical">Can automate it</a>.
+      </p>
+
+      <h3>Progressive Enhancement</h3>
+      <p>
+        Instead of designen and coding for users with modern desktop machines with the latest browsers, instead target the low end
+        users. Write well structured HTML, add a layer of CSS, and a layer of JavaScript. The app should work with just the
+        HTML, and with HTML + CSS.
+      </p>
+
+      <h2>ARIA Roles and Attributes <a id="aria-roles-and-attributes" class="wg-header-link-icon" href="#aria-roles-and-attributes">#</a></h2>
+      <p>
+        <mark>This is new stuff for me</mark>, so it gets its own section.
+      </p>
+      <h3>What is it?</h3>
+      <ul>
+        <li>WIA-ARIA = Web Accessibility Initiative - Accessible Rich Internet Applications</li>
+        <li>A specification developed by the W3C</li>
+        <li>Helps bring accessibility to modern sites and apps using JavaScript and Ajax</li>
+        <li>With ARIA, custom controls can be marked as widgets of different types</li>
+      </ul>
+      <p>
+        There are 2 ARIA categories: Roles and States and properties.
+      </p>
+      <h4>Roles</h4>
+      <p>
+        Roles define what a widget is or what it does. Example of roles are: menus, sliders, progress meters, modals. 
+        Roles also describe structure like: headings, regions, tables.
+      </p>
+      <h4>States and properties</h4>
+      <p>
+        State describes the current interaction state of the widget, examples: checked, disabled, selected, hidden.
+      </p>
+      <p>
+        Properties describe the charactaristic of the widget, like: drag n drop, live regions (regions that will be updated), modals (that will open)
+      </p>
+      <h3>Prefer the correct semantic over ARIA</h3>
+      <p>
+        If there is a semantic correct element for the job then use it, and it is often uneccessary to use ARIA in that case.
+        But if we must use sliders whith only divs and spans we can use ARIA semantic to better help assistive technoligy
+        undertand what it is. <a href="http://vanseodesign.com/web-design/five-rules-aria-html/">Here is some good info to read</a>.
+      </p>
 
       <h2>Testing, Resources and Tools <a id="testing-resources-and-tools" class="wg-header-link-icon" href="#testing-resources-and-tools">#</a></h2>
       <p>
@@ -249,7 +362,7 @@
       <h4>Operable</h4>
       <p>
         Users must be able to operate all user interface controls. Make the interface keyboard accessible, use links and buttons
-        properly, use logical form structure. Wire up propert events with JavaScript and add ARIA roles and attributes. Provide
+        properly, wire up events with JavaScript and add ARIA roles and attributes, use logical form structure. Provide
         the user enough time to understand and use the interface. Dont cause seizures, avoid anything that flashes more than
         3 times a second. User proper semantic for heading. Add "Skip to Main Content" link. Tabable controls (links, buttons,
         form controls) should have the proper focus and active state.
@@ -276,9 +389,11 @@
         <li><a href="https://www.wuhcag.com/wcag-checklist/">Wuhcag - Checklist</a></li>
         <li lang="sv"><a href="https://webbriktlinjer.se/">Webbriktlinjer för offentlig sektor (swedish)</a></li>
         <li><a href="https://styleguide.svt.se/code/accessibility-checklist.html">Checklist from SVT</a></li>
+        <li><a href="https://a11ywins.tumblr.com/">Collection of accessible web sites, great place to be inspired</a></li>
         <li><a href="https://dylanb.github.io/periodic-aria-roles.html">Periodic Table of ARIA 1.0 Roles</a></li>
         <li><a href="https://dylanb.github.io/periodic-aria-attributes.html">Periodic Table of ARIA 1.0 attributes</a></li>
-        <li><a href="https://a11ywins.tumblr.com/">Collection of accessible web sites, great place to be inspired</a></li>
+        <li><a href="https://www.w3.org/WAI/intro/aria">WAI-ARIA Overview</a></li>
+        <li><a href="http://rawgit.com/w3c/aria-in-html/master/index.html#notes-on-aria-use-in-html">Using WAI-ARIA in HTML</a></li>
       </ul>
       <h3>Website Tools</h3>
       <ul>
@@ -294,6 +409,8 @@
         <li><a href="https://www.npmjs.com/package/gulp-accessibility">gulp-accessibility</a></li>
         <li><a href="https://chrome.google.com/webstore/detail/siteimprove-accessibility/efcfolpjihicnikpmhnmphjhhpiclljc">Site Improve Chrome Extension (recommended)</a></li>
         <li><a href="​https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=sv">Accessibility Chrome Extension</a></li>
+        <li><a href="http://www.jpegmini.com/">jpegmini.com</a></li>
+        <li><a href="https://tinypng.com/">tinypng.com</a></li>
       </ul>
     </div>
   </div>
