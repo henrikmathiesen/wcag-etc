@@ -11,11 +11,36 @@
 
 <body>
   <div class="row">
-    <div class="column small-12">
+    <div class="column small-2">&nbsp;</div>
+    <div class="column small-8">
       <h1>WCAG</h1>
       <p>
-        Web Content Accessibility Guidelines
+        &mdash; Web Content Accessibility Guidelines
       </p>
+
+      <h2>Table of Content</h2>
+      <ul>
+        <li>
+          <a href="#accessibility-concerns">Accessibility concerns</a>
+        </li>
+        <li>
+          <a href="#planning-for-accessibility">Planning for accessibility</a>
+        </li>
+        <li>
+          <a href="#designing-for-accessibility">Designing for Accessibility</a>
+        </li>
+        <li>
+          <a href="#coding-for-accessibility">Coding for Accessibility</a>
+        </li>
+        <li>
+          <a href="#aria-roles-and-attributes">ARIA Roles and Attributes</a>
+        </li>
+        <li>
+          <a href="#testing-resources-and-tools">Testing, Resources and Tools</a>
+        </li>
+      </ul>
+
+      <hr />
 
       <h2>Accessibility concerns <a id="accessibility-concerns" class="wg-header-link-icon" href="#accessibility-concerns">#</a></h2>
       <p>
@@ -29,8 +54,8 @@
         color blind, some people use only the keyboard for navigation because using a mouse is difficult for them.
       </p>
       <p>
-        Making an interface accesable for everyone is "the right thing to do", it also helps with search enginge optimazation, and
-        in some countries it is actually the law.
+        Making an interface accesable for everyone is "the right thing to do", it also means that more people can use your site which
+        could mean more profit, it also helps with search enginge optimazation. And in some countries it is actually the law.
       </p>
 
       <h2>Planning for accessibility <a id="planning-for-accessibility" class="wg-header-link-icon" href="#planning-for-accessibility">#</a></h2>
@@ -215,7 +240,7 @@
       </p>
       <p>
         When a label is not needed, visually, because of the context, lets say for a search bar at the top of the page, we still
-        need to provide a label so users with screen readers can understand the context. We can hide the label with css.
+        need to provide a label so users with screen readers can understand the context. We can hide the label with CSS.
         Use the proper CSS to hide it, do not use display:none since it will hide it from screen readers as well. Instead
         use <code class="wg-text-no-wrap">.hidden { position:absolute;left-99999px; }</code>
       </p>
@@ -238,7 +263,10 @@
       </p>
       <p>
         Dont use div or span for clickable items (they will not have a tabindex), instead use a and button. However div or span can
-        be given a tabindex by adding tabindex="0" (where 0 meens the natural document flow).
+        be given a tabindex by adding tabindex="0" (where 0 means the natural document flow).
+      </p>
+      <p>
+        Dont play around with custom tabindex (tabindex=2,3 etc), it can become a maintenance nightmare.
       </p>
       <h3>CSS and Accessibility</h3>
       <p>
@@ -311,7 +339,7 @@
       </p>
       <h3>What is it?</h3>
       <ul>
-        <li>WIA-ARIA = Web Accessibility Initiative - Accessible Rich Internet Applications</li>
+        <li>WAI-ARIA = Web Accessibility Initiative - Accessible Rich Internet Applications</li>
         <li>A specification developed by the W3C</li>
         <li>Helps bring accessibility to modern sites and apps using JavaScript and Ajax</li>
         <li>With ARIA, custom controls can be marked as widgets of different types</li>
@@ -337,6 +365,9 @@
         But if we must use sliders whith only divs and spans we can use ARIA semantic to better help assistive technoligy
         undertand what it is. <a href="http://vanseodesign.com/web-design/five-rules-aria-html/">Here is some good info to read</a>.
       </p>
+      <p>
+        <a href="aria-roles-states-properties.html">ARIA roles, states and properties in action</a>
+      </p>
 
       <h2>Testing, Resources and Tools <a id="testing-resources-and-tools" class="wg-header-link-icon" href="#testing-resources-and-tools">#</a></h2>
       <p>
@@ -351,6 +382,9 @@
       <p>
         There are 12 guidelines devided into 4 areas (POUR): Perceivable, Operable, Understandable, Robust. It has has 3 levels of
         compliance: A (minimum), AA (Mid-Level), AAA (Highest Level).
+      </p>
+      <p>
+        <mark>According to WCAG 2.0 it is allowed to use JavaScript as long as the success critera are met.</mark>
       </p>
       <h4>Perceivable</h4>
       <p>
@@ -413,6 +447,7 @@
         <li><a href="https://tinypng.com/">tinypng.com</a></li>
       </ul>
     </div>
+    <div class="column small-2">&nbsp;</div>
   </div>
 </body>
 
