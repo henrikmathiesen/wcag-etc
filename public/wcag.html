@@ -154,6 +154,24 @@
         at the top, a side navigation at the left and main content in the middle, the tab order should be first the main
         navigation then the main content and the side navigation last.
       </p>
+      <h3>Landmark elements</h3>
+      <p>Use these so users can jump between sections.</p>
+      <ul>
+        <li>header</li>
+        <li>nav</li>
+        <li>main (can only be one)</li>
+        <li>footer</li>
+        <li>aside</li>
+      </ul>
+      <p>
+        <div>
+          <code>&lt;nav class="site-navigation" aria-label="site"/&gt;</code>
+        </div>
+        <div>
+          <code>&lt;nav class="page-navigation" aria-label="page"/&gt;</code>
+        </div>
+      </p>
+
       <h3>Images</h3>
       <p>
         Images that are used purely for design and do not communicate content to the user can be used as CSS backgrounds or give
@@ -186,7 +204,7 @@
         link at the top of the page, when using audio, provide a transcript for people that have hearing issues, when using
         videos provide caption. Also dont use links out of context, dont write "Read more", instead write "Read more about
         our products", if it is crucial to the design that links say "Read more" we can insert it with a:after {content:
-        "Read More"} in css and hide the "Read more about our products".
+        "Read More"} in css and hide the "Read more about our products" (dont hide it with display none, see below).
       </p>
       <h3>HTML Attributes</h3>
       <p>
