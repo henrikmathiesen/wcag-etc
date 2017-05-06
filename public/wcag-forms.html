@@ -13,7 +13,7 @@
     <div class="row">
         <div class="column small-12">
             <h1>Forms - WCAG etc</h1>
-            <form>
+            <form novalidate> <!-- The native validation balloons are NOT accessible right now (7/9 2016), better to validate with JavaScript -->
                 <fieldset>
                     <legend>Billing Adress</legend>
                     <label for="billing-adress">Adress</label>
@@ -58,6 +58,9 @@
                         <input type="password" name="password" required />
                     </label>
                 </fieldset>
+                <div class="text-right">
+                    <input type="submit" class="button" value="Submit">
+                </div>
             </form>
             <p>
                 <a href="http://stackoverflow.com/questions/774054/should-i-put-input-tags-inside-a-label-tag">
