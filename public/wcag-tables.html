@@ -14,26 +14,34 @@
         <div class="column small-12">
             <h1>Tables - WCAG etc</h1>
             <table>
+                <!-- Caption is not required, but can be appropiate -->
+                <caption>
+                    List of Products
+                    <span class="show-for-sr">
+                        A description of the table for screen readers can be used ...
+                    </span>
+                </caption>
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Description</th>
-                        <th>Cost</th>
+                        <!-- scope = col | row | colgroup | rowgroup (a screen reader will read the header along with the cell data) -->
+                        <th scope="col">Product</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Lorem</td>
+                        <th scope="row">Lorem</th>
                         <td>Quo animi sunt nisi recusandae officia sint architecto quisquam maiores quasi perferendis</td>
                         <td>3.99</td>
                     </tr>
                     <tr>
-                        <td>Dolores</td>
+                        <th scope="row">Dolores</th>
                         <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
                         <td>7.99</td>
                     </tr>
                     <tr>
-                        <td>Ipsum</td>
+                        <th scope="row">Ipsum</th>
                         <td>Dicta quae nesciunt, nisi, nemo quaerat voluptatem ipsam dolorum fugiat.</td>
                         <td>11.99</td>
                     </tr>
