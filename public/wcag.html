@@ -55,7 +55,8 @@
       </p>
       <p>
         Making an interface accesable for everyone is "the right thing to do", it also means that more people can use your site which
-        could mean more profit, it also helps with search enginge optimazation. And in some countries it is actually the law.
+        could mean more profit, it also helps with search enginge optimazation. And in some countries it is actually the
+        law.
       </p>
 
       <h2>Planning for accessibility <a id="planning-for-accessibility" class="wg-header-link-icon" href="#planning-for-accessibility">#</a></h2>
@@ -238,8 +239,29 @@
       </div>
       <h3>Tables</h3>
       <p>
-        <!-- TODO -->
+        Use tables (and not divs and spans) for displaying data. Do not tables for layout.
       </p>
+      <h4>Parts of a table</h4>
+      <ul>
+        <li>caption</li>
+        <li>thead
+          <ul>
+            <li>tr th</li>
+            <li>scope and headers</li>
+          </ul>
+        </li>
+        <li>tbody
+          <ul>
+            <li>tr td</li>
+          </ul>
+        </li>
+        <li>
+          tfoot
+          <ul>
+            <li>tr td</li>
+          </ul>
+        </li>
+      </ul>
 
       <h3>Forms</h3>
       <p>
@@ -335,20 +357,20 @@
 
       <h3>Performance</h3>
       <p>
-        A slow internet connection can cripple the user experience if the app has many http requests and big files to download.
-        Try to make fewer http request by bundle javascript and css files. Also use compression on images, see 
+        A slow internet connection can cripple the user experience if the app has many http requests and big files to download. Try
+        to make fewer http request by bundle javascript and css files. Also use compression on images, see
         <a href="#testing-resources-and-tools">tools</a>.
       </p>
       <p>
-        Usage of image sprites is good for reducing the number of http requests and caching (every image is cached at once).
-        There are Gulp plugins for this, just google it.
+        Usage of image sprites is good for reducing the number of http requests and caching (every image is cached at once). There
+        are Gulp plugins for this, just google it.
       </p>
       <p>
         SVG is a good option for its vector properties (scalable).
       </p>
       <p>
-        Critical CSS is a concept where we place CSS in header to prevent http request for external CSS, this "critical CSS"
-        is used for styling the "above the fold" content, so users get it as quickly as possible.
+        Critical CSS is a concept where we place CSS in header to prevent http request for external CSS, this "critical CSS" is used
+        for styling the "above the fold" content, so users get it as quickly as possible.
         <a href="https://github.com/addyosmani/critical">Can automate it</a>.
       </p>
 
@@ -375,21 +397,22 @@
       </p>
       <h4>Roles</h4>
       <p>
-        Roles define what a widget is or what it does. Example of roles are: menus, sliders, progress meters, modals. 
-        Roles also describe structure like: headings, regions, tables.
+        Roles define what a widget is or what it does. Example of roles are: menus, sliders, progress meters, modals. Roles also
+        describe structure like: headings, regions, tables.
       </p>
       <h4>States and properties</h4>
       <p>
         State describes the current interaction state of the widget, examples: checked, disabled, selected, hidden.
       </p>
       <p>
-        Properties describe the charactaristic of the widget, like: drag n drop, live regions (regions that will be updated), modals (that will open)
+        Properties describe the charactaristic of the widget, like: drag n drop, live regions (regions that will be updated), modals
+        (that will open)
       </p>
       <h3>Prefer the correct semantic over ARIA</h3>
       <p>
-        If there is a semantic correct element for the job then use it, and it is often uneccessary to use ARIA in that case.
-        But if we must use sliders whith only divs and spans we can use ARIA semantic to better help assistive technoligy
-        undertand what it is. <a href="http://vanseodesign.com/web-design/five-rules-aria-html/">Here is some good info to read</a>.
+        If there is a semantic correct element for the job then use it, and it is often uneccessary to use ARIA in that case. But
+        if we must use sliders whith only divs and spans we can use ARIA semantic to better help assistive technoligy undertand
+        what it is. <a href="http://vanseodesign.com/web-design/five-rules-aria-html/">Here is some good info to read</a>.
       </p>
       <p>
         <a href="aria-roles-states-properties.html">ARIA roles, states and properties in action</a>
@@ -422,8 +445,8 @@
       <h4>Operable</h4>
       <p>
         Users must be able to operate all user interface controls. Make the interface keyboard accessible, use links and buttons
-        properly, wire up events with JavaScript and add ARIA roles and attributes, use logical form structure. Provide
-        the user enough time to understand and use the interface. Dont cause seizures, avoid anything that flashes more than
+        properly, wire up events with JavaScript and add ARIA roles and attributes, use logical form structure. Provide the
+        user enough time to understand and use the interface. Dont cause seizures, avoid anything that flashes more than
         3 times a second. User proper semantic for heading. Add "Skip to Main Content" link. Tabable controls (links, buttons,
         form controls) should have the proper focus and active state.
       </p>
