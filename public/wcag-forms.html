@@ -13,7 +13,10 @@
     <div class="row">
         <div class="column small-12">
             <h1>Forms - WCAG etc</h1>
-            <form novalidate> <!-- The native validation balloons are NOT accessible right now (7/9 2016), better to validate with JavaScript -->
+            <!-- The native validation balloons are NOT accessible right now (7/9 2016), better to validate with JavaScript -->
+            <form novalidate>
+                <!-- Not in the natural taborder, but focusable by JavaScript (scroll to it), tell screen readers it is dynamicly updated -->
+                <section tabindex="-1" aria-live="assertive" class="js-form-errors wg-input-invalid"></section>
                 <fieldset>
                     <legend>Billing Adress</legend>
                     <label for="billing-adress">Adress</label>

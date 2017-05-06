@@ -311,7 +311,11 @@
         be given a tabindex by adding tabindex="0" (where 0 means the natural document flow).
       </p>
       <p>
+        Can also give an element tabindex="-1", then it will be removed from the natural taborder but stil focusable with JavaScript.
+      </p>
+      <p>
         Dont play around with custom tabindex (tabindex=2,3 etc), it can become a maintenance nightmare.
+        <mark>The only tabindex values we should use are -1 and 0</mark>
       </p>
       <h3>CSS and Accessibility</h3>
       <p>
