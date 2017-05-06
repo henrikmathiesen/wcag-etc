@@ -1,0 +1,41 @@
+// Zero
+
+.wg-margin-0 {
+    margin: 0;
+}
+
+// XL
+
+.wg-margin-top-xl {
+    margin-top: $wg-gutter-xl;
+}
+
+// LG
+
+.wg-margin-top-lg {
+    margin-top:$wg-gutter-lg;
+}
+
+.wg-margin-bottom-lg {
+    margin-bottom:$wg-gutter-lg;
+}
+
+// MD
+
+.wg-margin-bottom-md {
+    margin-bottom: $wg-gutter-md;
+}
+
+.wg-child-margin-md {
+    > * + * {
+        margin-top:$wg-gutter-md;
+    }
+}
+
+// SM
+
+.wg-child-margin-sm {
+    > * + * {
+        margin-top:$wg-gutter-sm;
+    }
+}

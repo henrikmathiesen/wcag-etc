@@ -44,6 +44,7 @@
 @include foundation-float-classes;
 
 @import 'wg-base';
-@import 'wg-icons-and-symbols';
 @import 'components/foundation-mq/wg-foundation-mq';
+@import 'wg-icons-and-symbols';
+@import 'wg-gutter';
 @import 'wg-helpers';
