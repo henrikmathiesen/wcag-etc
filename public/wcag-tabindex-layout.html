@@ -64,6 +64,19 @@
           <p>
             Also note the skip to main content link, hidden visually but tabbable, on enter press next tab will focus the main content.
           </p>
+          <h2><mark>Important</mark></h2>
+          <p>
+            The teacher in one Pluralsight course is saying that this is not the correct way to do it.
+            The visual presentation should match the DOM, so push/pull foundation columns is not good.
+            Maybe it is better to just have the "Skip to main content" link and skip push/pull.
+            That way would have the default taborder of: top links, side links, main content - but the user
+            can skip the side links.
+          </p>
+          <p class="small-font">
+            * The argument the teacher has is that some users are using screen readers together with magnifying tools
+            and it would be confusing if the order of what the screen reader reads and the visual order
+            do not match.
+          </p>
         </div>
       </div>
 

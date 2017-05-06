@@ -9,3 +9,7 @@ h2 {
 h2.small-font {
     font-size: rem-calc(map-deep-get($header-styles, small, h2, font-size));
 }
+
+.small-font {
+    font-size: $small-font-size;
+}
