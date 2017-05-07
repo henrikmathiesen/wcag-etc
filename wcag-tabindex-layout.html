@@ -17,7 +17,7 @@
 
       <nav class="row">
         <div class="column small-12">
-          <a class="show-for-sr" href="#main-content">Skip to main content</a>
+          <a class="wg-show-for-sr" href="#main-content">Skip to main content</a>
           <button class="button">Menu Item 1</button>
           <button class="button">Menu Item 2</button>
           <button class="button">Menu Item 3</button>
@@ -25,6 +25,10 @@
       </nav>
       <div class="row wg-margin-top-lg wg-margin-bottom-lg">
         <div id="main-content" class="small-12 medium-9 medium-push-3 columns">
+          <p>
+            Foundations 'show-for-sr' or 'show-on-focus' helps with hiding Skip to main content link visually,
+            but make screen readers read it. But on this page we roll our own CSS class for it.
+          </p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat sequi a consequatur, aliquam, magnam eaque accusamus quisquam
             fuga nesciunt unde deleniti dignissimos sit culpa omnis, voluptate odio laborum veniam labore.
@@ -59,6 +63,19 @@
           </p>
           <p>
             Also note the skip to main content link, hidden visually but tabbable, on enter press next tab will focus the main content.
+          </p>
+          <h2><mark>Important</mark></h2>
+          <p>
+            The teacher in one Pluralsight course is saying that this is not the correct way to do it.
+            The visual presentation should match the DOM, so push/pull foundation columns is not good.
+            Maybe it is better to just have the "Skip to main content" link and skip push/pull.
+            That way would have the default taborder of: top links, side links, main content - but the user
+            can skip the side links.
+          </p>
+          <p class="small-font">
+            * The argument the teacher has is that some users are using screen readers together with magnifying tools
+            and it would be confusing if the order of what the screen reader reads and the visual order
+            do not match.
           </p>
         </div>
       </div>

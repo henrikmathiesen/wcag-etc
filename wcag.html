@@ -55,7 +55,8 @@
       </p>
       <p>
         Making an interface accesable for everyone is "the right thing to do", it also means that more people can use your site which
-        could mean more profit, it also helps with search enginge optimazation. And in some countries it is actually the law.
+        could mean more profit, it also helps with search enginge optimazation. And in some countries it is actually the
+        law.
       </p>
 
       <h2>Planning for accessibility <a id="planning-for-accessibility" class="wg-header-link-icon" href="#planning-for-accessibility">#</a></h2>
@@ -154,6 +155,24 @@
         at the top, a side navigation at the left and main content in the middle, the tab order should be first the main
         navigation then the main content and the side navigation last.
       </p>
+      <h3>Landmark elements</h3>
+      <p>Use these so users can jump between sections.</p>
+      <ul>
+        <li>header</li>
+        <li>nav</li>
+        <li>main (can only be one)</li>
+        <li>footer</li>
+        <li>aside</li>
+      </ul>
+      <p>
+        <div>
+          <code>&lt;nav class="site-navigation" aria-label="site"/&gt;</code>
+        </div>
+        <div>
+          <code>&lt;nav class="page-navigation" aria-label="page"/&gt;</code>
+        </div>
+      </p>
+
       <h3>Images</h3>
       <p>
         Images that are used purely for design and do not communicate content to the user can be used as CSS backgrounds or give
@@ -162,10 +181,32 @@
         and to the point, it should communicate what the image is trying to say.
       </p>
       <p>
+        If we must use images as CSS backgrounds, use CSS to hide (use correct hiding tecnique, see CSS section) a span with text
+        info.
+      </p>
+      <p>
+        For SVGs, we need to complement it with better semantic.
+        <div>
+          <code>
+            &lt;svg xmlns="..." role="img" aria-labelledby="twitter-title"&gt;
+          </code>
+        </div>
+        <div>
+          <code>
+            &lt;title id="twitter-title"&gt;Follow on Twitter&lt;/title&gt;
+          </code>
+        </div>
+        <div>
+          <code>
+            &lt;/svg&gt;
+          </code>
+        </div>
+      </p>
+      <p>
         For more complex images, like a diagram, we can provide a long description (longdesc="graph.txt"), the value of the attribute
-        can be a text file, a link to another page or a link to a section on the same page (it is ok to hide it with display:none).
-        However, the browser support longdesc is not good at this point (sep, 2015), therefor it is best to provide a plain
-        old link to the long description. To do this right we need an aria attribute.
+        can be a text file, a link to another page or a link to a section on the same page (it is ok to hide it with proper
+        CSS). However, the browser support longdesc is not good at this point (sep, 2015), therefor it is best to provide
+        a plain old link to the long description. To do this right we need an aria attribute.
       </p>
       <h4>aria-describedby</h4>
       <p>
@@ -185,8 +226,8 @@
         All your users, no mather their profile, came for your content and they should be able to get it. Place a Skip to main content
         link at the top of the page, when using audio, provide a transcript for people that have hearing issues, when using
         videos provide caption. Also dont use links out of context, dont write "Read more", instead write "Read more about
-        our products", if it is crucial to the design that links say "Read more" we can insert it with a:after {content:
-        "Read More"} in css and hide the "Read more about our products".
+        our products", if it is crucial to the design that links say "Read more" we can solve it with CSS.
+        <a href="#">Read more<span class="wg-show-for-sr"> about our products</span></a>
       </p>
       <h3>HTML Attributes</h3>
       <p>
@@ -201,7 +242,7 @@
         <li>When using forms, use the required attribute for required fields</li>
         <li>Use tabindex="0" if using non tabable controls like a span, 0 means tab order is in normal document flow</li>
       </ul>
-      <div class="wg-child-margin-top-sm wg-margin-bottom-md">
+      <div class="wg-child-margin-sm wg-margin-bottom-md">
         <div>
           <code>&lt;html lang="en"&gt;...&lt;/html&gt</code>
         </div>
@@ -218,6 +259,32 @@
           <div><code>&lt;/form&gt;</code></div>
         </div>
       </div>
+      <h3>Tables</h3>
+      <p>
+        Use tables (and not divs and spans) for displaying data. Do not tables for layout.
+      </p>
+      <h4>Parts of a table</h4>
+      <ul>
+        <li>caption</li>
+        <li>thead
+          <ul>
+            <li>tr th</li>
+            <li>scope and headers</li>
+          </ul>
+        </li>
+        <li>tbody
+          <ul>
+            <li>tr td</li>
+          </ul>
+        </li>
+        <li>
+          tfoot
+          <ul>
+            <li>tr td</li>
+          </ul>
+        </li>
+      </ul>
+
       <h3>Forms</h3>
       <p>
         Forms can be a little complex, but we need to make them simple and structure them in a logical order. We accomplish that
@@ -242,7 +309,7 @@
         When a label is not needed, visually, because of the context, lets say for a search bar at the top of the page, we still
         need to provide a label so users with screen readers can understand the context. We can hide the label with CSS.
         Use the proper CSS to hide it, do not use display:none since it will hide it from screen readers as well. Instead
-        use <code class="wg-text-no-wrap">.hidden { position:absolute;left-99999px; }</code>
+        use the correct CSS, see below under CSS and Accessibility.
       </p>
       <p><a href="wcag-forms.html">See example of form.</a></p>
       <h3>Keyboard Control</h3>
@@ -266,7 +333,11 @@
         be given a tabindex by adding tabindex="0" (where 0 means the natural document flow).
       </p>
       <p>
+        Can also give an element tabindex="-1", then it will be removed from the natural taborder but stil focusable with JavaScript.
+      </p>
+      <p>
         Dont play around with custom tabindex (tabindex=2,3 etc), it can become a maintenance nightmare.
+        <mark>The only tabindex values we should use are -1 and 0</mark>
       </p>
       <h3>CSS and Accessibility</h3>
       <p>
@@ -304,25 +375,28 @@
         </code>
       </pre>
       <p>
+        Twitter Bootstrap has a CSS class named 'sr-only' and Foundation has a 'show-for-sr', for this purpose.
+      </p>
+      <p>
         Note that display:none or visibility:hidden or width:0;height:0; will hide the element from screen readers as well.
       </p>
 
       <h3>Performance</h3>
       <p>
-        A slow internet connection can cripple the user experience if the app has many http requests and big files to download.
-        Try to make fewer http request by bundle javascript and css files. Also use compression on images, see 
+        A slow internet connection can cripple the user experience if the app has many http requests and big files to download. Try
+        to make fewer http request by bundle javascript and css files. Also use compression on images, see
         <a href="#testing-resources-and-tools">tools</a>.
       </p>
       <p>
-        Usage of image sprites is good for reducing the number of http requests and caching (every image is cached at once).
-        There are Gulp plugins for this, just google it.
+        Usage of image sprites is good for reducing the number of http requests and caching (every image is cached at once). There
+        are Gulp plugins for this, just google it.
       </p>
       <p>
         SVG is a good option for its vector properties (scalable).
       </p>
       <p>
-        Critical CSS is a concept where we place CSS in header to prevent http request for external CSS, this "critical CSS"
-        is used for styling the "above the fold" content, so users get it as quickly as possible.
+        Critical CSS is a concept where we place CSS in header to prevent http request for external CSS, this "critical CSS" is used
+        for styling the "above the fold" content, so users get it as quickly as possible.
         <a href="https://github.com/addyosmani/critical">Can automate it</a>.
       </p>
 
@@ -345,25 +419,46 @@
         <li>With ARIA, custom controls can be marked as widgets of different types</li>
       </ul>
       <p>
-        There are 2 ARIA categories: Roles and States and properties.
+        There are 3 ARIA categories: Roles, States and properties.
       </p>
       <h4>Roles</h4>
       <p>
-        Roles define what a widget is or what it does. Example of roles are: menus, sliders, progress meters, modals. 
-        Roles also describe structure like: headings, regions, tables.
+        Roles define what a widget is or what it does. Example of roles are: menus, sliders, progress meters, modals. Roles also
+        describe structure like: headings, regions, tables.
       </p>
-      <h4>States and properties</h4>
+      <p>
+        <mark>
+          svg role="img" , li role="menuitem"
+        </mark>
+      </p>
+      <h4>States</h4>
       <p>
         State describes the current interaction state of the widget, examples: checked, disabled, selected, hidden.
       </p>
       <p>
-        Properties describe the charactaristic of the widget, like: drag n drop, live regions (regions that will be updated), modals (that will open)
+        <mark>
+          li aria-selected="true"
+        </mark>
+      </p>
+      <h4>Properties</h4>
+      <p>
+        Properties describe the charactaristic of the widget, like: drag n drop, live regions (regions that will be updated), modals
+        (that will open)
+      </p>
+      <p>
+        <mark>
+          li aria-haspopup="true" , li aria-expanded="false"
+        </mark>
       </p>
       <h3>Prefer the correct semantic over ARIA</h3>
       <p>
-        If there is a semantic correct element for the job then use it, and it is often uneccessary to use ARIA in that case.
-        But if we must use sliders whith only divs and spans we can use ARIA semantic to better help assistive technoligy
-        undertand what it is. <a href="http://vanseodesign.com/web-design/five-rules-aria-html/">Here is some good info to read</a>.
+        If there is a semantic correct element for the job then use it, and it is often uneccessary to use ARIA in that case. But
+        if we must use sliders whith only divs and spans we can use ARIA semantic to better help assistive technoligy undertand
+        what it is. <a href="http://vanseodesign.com/web-design/five-rules-aria-html/">Here is some good info to read</a>.
+      </p>
+      <p>
+        aria is only for screen readers, it does not change the browser behavior. If a span gets role="button",
+        it does not make it focusable, we still have to give it tabindex="0".
       </p>
       <p>
         <a href="aria-roles-states-properties.html">ARIA roles, states and properties in action</a>
@@ -396,8 +491,8 @@
       <h4>Operable</h4>
       <p>
         Users must be able to operate all user interface controls. Make the interface keyboard accessible, use links and buttons
-        properly, wire up events with JavaScript and add ARIA roles and attributes, use logical form structure. Provide
-        the user enough time to understand and use the interface. Dont cause seizures, avoid anything that flashes more than
+        properly, wire up events with JavaScript and add ARIA roles and attributes, use logical form structure. Provide the
+        user enough time to understand and use the interface. Dont cause seizures, avoid anything that flashes more than
         3 times a second. User proper semantic for heading. Add "Skip to Main Content" link. Tabable controls (links, buttons,
         form controls) should have the proper focus and active state.
       </p>
