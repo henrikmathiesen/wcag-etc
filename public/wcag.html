@@ -181,6 +181,27 @@
         and to the point, it should communicate what the image is trying to say.
       </p>
       <p>
+        If we must use images as CSS backgrounds, use CSS to hide (use correct hiding tecnique, see CSS section) a span with text info.
+      </p>
+      <p>
+        For SVGs, we need to complement it with better semantic.
+        <div>
+          <code>
+            &lt;svg xmlns="..." role="img" aria-labelledby="twitter-title"&gt;
+          </code>
+        </div>
+        <div>
+          <code>
+            &lt;title id="twitter-title"&gt;Follow on Twitter&lt;/title&gt;
+          </code>
+        </div>
+        <div>
+          <code>
+            &lt;/svg&gt;
+          </code>
+        </div>
+      </p>
+      <p>
         For more complex images, like a diagram, we can provide a long description (longdesc="graph.txt"), the value of the attribute
         can be a text file, a link to another page or a link to a section on the same page (it is ok to hide it with proper CSS).
         However, the browser support longdesc is not good at this point (sep, 2015), therefor it is best to provide a plain
