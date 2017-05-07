@@ -181,7 +181,8 @@
         and to the point, it should communicate what the image is trying to say.
       </p>
       <p>
-        If we must use images as CSS backgrounds, use CSS to hide (use correct hiding tecnique, see CSS section) a span with text info.
+        If we must use images as CSS backgrounds, use CSS to hide (use correct hiding tecnique, see CSS section) a span with text
+        info.
       </p>
       <p>
         For SVGs, we need to complement it with better semantic.
@@ -203,9 +204,9 @@
       </p>
       <p>
         For more complex images, like a diagram, we can provide a long description (longdesc="graph.txt"), the value of the attribute
-        can be a text file, a link to another page or a link to a section on the same page (it is ok to hide it with proper CSS).
-        However, the browser support longdesc is not good at this point (sep, 2015), therefor it is best to provide a plain
-        old link to the long description. To do this right we need an aria attribute.
+        can be a text file, a link to another page or a link to a section on the same page (it is ok to hide it with proper
+        CSS). However, the browser support longdesc is not good at this point (sep, 2015), therefor it is best to provide
+        a plain old link to the long description. To do this right we need an aria attribute.
       </p>
       <h4>aria-describedby</h4>
       <p>
@@ -418,26 +419,46 @@
         <li>With ARIA, custom controls can be marked as widgets of different types</li>
       </ul>
       <p>
-        There are 2 ARIA categories: Roles and States and properties.
+        There are 3 ARIA categories: Roles, States and properties.
       </p>
       <h4>Roles</h4>
       <p>
         Roles define what a widget is or what it does. Example of roles are: menus, sliders, progress meters, modals. Roles also
         describe structure like: headings, regions, tables.
       </p>
-      <h4>States and properties</h4>
+      <p>
+        <mark>
+          svg role="img" , li role="menuitem"
+        </mark>
+      </p>
+      <h4>States</h4>
       <p>
         State describes the current interaction state of the widget, examples: checked, disabled, selected, hidden.
       </p>
       <p>
+        <mark>
+          li aria-selected="true"
+        </mark>
+      </p>
+      <h4>Properties</h4>
+      <p>
         Properties describe the charactaristic of the widget, like: drag n drop, live regions (regions that will be updated), modals
         (that will open)
+      </p>
+      <p>
+        <mark>
+          li aria-haspopup="true" , li aria-expanded="false"
+        </mark>
       </p>
       <h3>Prefer the correct semantic over ARIA</h3>
       <p>
         If there is a semantic correct element for the job then use it, and it is often uneccessary to use ARIA in that case. But
         if we must use sliders whith only divs and spans we can use ARIA semantic to better help assistive technoligy undertand
         what it is. <a href="http://vanseodesign.com/web-design/five-rules-aria-html/">Here is some good info to read</a>.
+      </p>
+      <p>
+        aria is only for screen readers, it does not change the browser behavior. If a span gets role="button",
+        it does not make it focusable, we still have to give it tabindex="0".
       </p>
       <p>
         <a href="aria-roles-states-properties.html">ARIA roles, states and properties in action</a>
