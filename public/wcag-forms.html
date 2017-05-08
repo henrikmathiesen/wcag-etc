@@ -15,7 +15,8 @@
             <h1>Forms - WCAG etc</h1>
             <!-- The native validation balloons are NOT accessible right now (7/9 2016), better to validate with JavaScript -->
             <form novalidate>
-                <!-- Not in the natural taborder, but focusable by JavaScript (scroll to it), tell screen readers it is dynamicly updated -->
+                <!-- Not in the natural taborder, but focusable by JavaScript (scroll to it), tell screen readers it is dynamicly updated, user can then tab through the form -->
+                <!-- Make error messages as links to inputs id -->
                 <section tabindex="-1" aria-live="assertive" class="js-form-errors wg-input-invalid"></section>
                 <fieldset>
                     <legend>Billing Adress</legend>
