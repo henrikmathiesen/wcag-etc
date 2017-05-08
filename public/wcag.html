@@ -419,43 +419,52 @@
         <li>With ARIA, custom controls can be marked as widgets of different types</li>
       </ul>
       <p>
-        There are 3 ARIA categories: Roles, States and properties.
+        There are 3 ARIA categories: Roles, States and Properties.
       </p>
       <h4>Roles</h4>
       <p>
         Roles define what a widget is or what it does. Example of roles are: menus, sliders, progress meters, modals. Roles also
         describe structure like: headings, regions, tables.
       </p>
-      <p>
+      <div class="wg-child-margin-sm wg-margin-bottom-md">
         <div>
           <code>&lt;svg role="img"/&gt;</code>
         </div>
         <div>
           <code>&lt;li role="menuitem"/&gt;</code>
         </div>
-      </p>
+      </div>
       <h4>States</h4>
       <p>
         State describes the current interaction state of the widget, examples: checked, disabled, selected, hidden.
       </p>
-      <p>
+      <div class="wg-margin-bottom-md">
         <div>
           <code>&lt;li aria-selected="true"/&gt;</code>
         </div>
-      </p>
+      </div>
       <h4>Properties</h4>
       <p>
         Properties describe the charactaristic of the widget, like: drag n drop, live regions (regions that will be updated), modals
         (that will open)
       </p>
-      <p>
+      <div class="wg-child-margin-sm wg-margin-bottom-md">
         <div>
           <code>&lt;li aria-haspopup="true"/&gt;</code>
         </div>
         <div>
           <code>&lt;li aria-expanded="false"/&gt;</code>
         </div>
-      </p>
+        <div>
+          <code>&lt;div aria-live="polite" aria-atomic="false"/&gt;</code>
+        </div>
+        <div>
+          <code>&lt;div aria-live="assertive" aria-atomic="true"/&gt;</code>
+        </div>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">Read more about live regions and atomic</a>
+        </p>
+      </div>
       <h3>Prefer the correct semantic over ARIA</h3>
       <p>
         If there is a semantic correct element for the job then use it, and it is often uneccessary to use ARIA in that case. But
