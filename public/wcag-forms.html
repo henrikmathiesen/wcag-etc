@@ -63,7 +63,8 @@
                 </fieldset>
                 <fieldset>
                     <!-- If you absolutly must use placeholder as label, at least complement it with aria-label -->
-                    <input type="text" aria-label="Your name" placeholder="Your name">
+                    <!-- aria-required="true" can be used, as an alternative to html required attribute / writing Required in an associated label (DO NOT communicate required several times) -->
+                    <input type="text" aria-label="Your name" aria-required="true" placeholder="Your name">
                 </fieldset>
                 <div class="text-right">
                     <input type="submit" class="button" value="Submit">
