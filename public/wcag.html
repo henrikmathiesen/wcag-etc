@@ -300,7 +300,7 @@
         Dont use placeholder as a replacemnt for a label. Placeholder can however be used to help the user with formatting examples.
       </p>
       <p>
-        Add helper text where needed, dont rely on the placeholder.
+        Add helper text for validation where needed, dont rely on the placeholder, dont solely use color for communicating errors.
       </p>
       <p>
         Make sure that the taborder works (it should work if the form is structured in a logical way).
@@ -312,6 +312,12 @@
         use the correct CSS, see below under CSS and Accessibility. We could also use aria-label="Search"
       </p>
       <p><a href="wcag-forms.html">See example of form.</a></p>
+      <h4>Cancel submit</h4>
+      <p>
+        Apart from validation (that is communicated in an accesable way), give the user a change to cancel the form
+        submit if possible. For example cancel an order up to 24 hours after its made. This is not always feasable
+        to implement however. We could at least implement some confirmation steps the user will click through.
+      </p>
       <h3>Keyboard Control</h3>
       <p>
         This area of accessibility is easely testable, simply stop using the mouse and see if we can use the interface.
