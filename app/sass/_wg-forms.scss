@@ -1,0 +1,9 @@
+input[type='checkbox']:checked + label {
+    font-weight: $global-weight-bold;;
+}
+
+// Validation
+
+.wg-input-invalid {
+    color: map-get($foundation-palette, alert);
+}
