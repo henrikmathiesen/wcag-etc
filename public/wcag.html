@@ -341,9 +341,16 @@
       </p>
       <h3>CSS and Accessibility</h3>
       <p>
-        User styling will override our styles, users can for example change font, font size and contrast. It is important that the
+        User styling will override our styles, users can for example change font, font size, contrast and zoom in. It is important that the
         content looks good under these circumstances, for example a button expanding to fit the bigger font size. Dont use
         pixel values, use relative units instead like REM or percent.
+      </p>
+      <p>
+        <mark>
+          Its better to use relative units for text, so users can change the text size in their browser and have
+          it reflected in the layout in a nice way (block etc should adapt to it). If we use pixels, then users must 
+          zoom in to enlarge the text, but that zooms in everything and the user must use scroll bars to see all the content.
+        </mark>
       </p>
       <p>
         Dont rely on CSS alone to present meaning, use the proper semantic (like h1-h6 for headers).
