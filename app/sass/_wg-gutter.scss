@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+.wg-margin-top-0 {
+    margin-top:0;
+}
+
 // XL
 
 .wg-margin-top-xl {
@@ -21,6 +25,10 @@
 }
 
 // MD
+
+.wg-margin-top-md {
+    margin-top: $wg-gutter-md;
+}
 
 .wg-margin-bottom-md {
     margin-bottom: $wg-gutter-md;

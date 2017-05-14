@@ -1,5 +1,9 @@
 body {
-    padding: $wg-gutter-xxl;
+    margin-top:$wg-gutter-md;
+}
+
+h1.wg-banner {
+    font-weight: $global-weight-bold;
 }
 
 h2 {
