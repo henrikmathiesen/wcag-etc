@@ -28,18 +28,29 @@
             </div>
             <div class="row" role="navigation">
                 <div class="columns medium-2" role="navigation">
-                    <ul class="js-main-menu" role="menu">
-                        <li role="menuitem">
-                            <a href="#">Item 1</a>
+                    <ul class="js-main-menu wg-cursor-pointer" role="menu">
+                        <li role="menuitem" aria-selected="false">
+                            Item 1
                         </li>
-                        <li role="menuitem">
-                            <a href="#">Item 2</a>
+                        <li role="menuitem" aria-selected="false">
+                            Item 2
                             <ul class="hide" role="menu" aria-hidden="true">
-                                <li>
-                                    <a href="#">Sub Item 1</a>
+                                <li role="menuitem" aria-selected="false">
+                                    2: Sub Item 1
                                 </li>
-                                <li>
-                                    <a href="#">Sub Item 2</a>
+                                <li role="menuitem" aria-selected="false">
+                                    2: Sub Item 2
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="menuitem" aria-selected="false">
+                            Item 3
+                            <ul class="hide" role="menu" aria-hidden="true">
+                                <li role="menuitem" aria-selected="false">
+                                    3: Sub Item 1
+                                </li>
+                                <li role="menuitem" aria-selected="false">
+                                    3: Sub Item 2
                                 </li>
                             </ul>
                         </li>
@@ -78,10 +89,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
         // We are using inline javascript for simplicity
-        $('.js-main-menu').find('a').on('click', function () {
-            var $subMenu = $(this).next('ul');
-            var subMenuAriaHidden = $subMenu.attr('aria-hidden') === 'true';
-            $subMenu.toggleClass('hide').attr('aria-hidden', subMenuAriaHidden ? 'false' : 'true');
+
+        var $menuItems = $('.js-main-menu').find('li');
+        var $subMenus = $('.js-main-menu').find('ul');
+
+        $menuItems.on('click', function (event) {
+            event.stopPropagation();
+
+            var $selectedMenuItem = $(this);
+            var $selectedMenuItemSubMenu = $selectedMenuItem.find('ul');
+            var $selectedMenuItemParentMenu = $selectedMenuItem.parent('ul');
+
+            $menuItems.attr('aria-selected', 'false');
+            $subMenus.addClass('hide').attr('aria-hidden', 'true');
+
+            $selectedMenuItem.attr('aria-selected', 'true');
+            $selectedMenuItemSubMenu.removeClass('hide').attr('aria-hidden', 'false');
+            $selectedMenuItemParentMenu.removeClass('hide').attr('aria-hidden', 'false');
         });
     </script>
 </body>
