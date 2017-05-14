@@ -36,3 +36,6 @@ Answer: https://github.com/mikechabot/cross-env-example/pull/1
 ### cache bust and inject to index.html
 Cache busting works with npm package hashmark, but I have problem injecting it into index.html due to this (I do want to replace the file):  
 https://github.com/DannyMoerkerke/postbuild/issues/3
+
+### Running NPM scripts from external file
+We are just touching on it in this project, see package.json and the associated file. We will get back to that I think.
