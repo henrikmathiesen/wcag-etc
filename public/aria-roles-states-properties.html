@@ -28,12 +28,20 @@
             </div>
             <div class="row" role="navigation">
                 <div class="columns medium-2" role="navigation">
-                    <ul>
-                        <li>
+                    <ul class="js-main-menu" role="menu">
+                        <li role="menuitem">
                             <a href="#">Item 1</a>
                         </li>
-                        <li>
+                        <li role="menuitem">
                             <a href="#">Item 2</a>
+                            <ul class="hide" role="menu" aria-hidden="true">
+                                <li>
+                                    <a href="#">Sub Item 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Sub Item 2</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -41,6 +49,18 @@
                     <p>
                         This is the main content.
                     </p>
+                    <article>
+                        <header>
+                            <h2 class="small-font wg-margin-top-0">Article header</h2>
+                        </header>
+                        <section>
+                            <p>
+                                A section with text in an article.
+                                <a href="https://www.w3.org/wiki/HTML_structural_elements#.3Cheader.3E_and_.3Cfooter.3E">W3.org</a>
+                            </p>
+                        </section>
+                        <footer>Article footer</footer>
+                    </article>
                 </div>
                 <div class="columns medium-3" role="complimentary">
                     <h2 class="small-font wg-margin-top-0">In other news</h2>
@@ -50,20 +70,34 @@
                     </p>
                 </div>
             </div>
+            <div role="contentinfo">
+                Some information about the site ...
+            </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        // We are using inline javascript for simplicity
+        $('.js-main-menu').find('a').on('click', function () {
+            var $subMenu = $(this).next('ul');
+            var subMenuAriaHidden = $subMenu.attr('aria-hidden') === 'true';
+            $subMenu.toggleClass('hide').attr('aria-hidden', subMenuAriaHidden ? 'false' : 'true');
+        });
+    </script>
 </body>
 
 <!-- 
     NOTES
         - application indicates that the user is moving from widget to widget, and assistive technologies will adapt to that
-        - for role=banner, role=navigation, role=main we could have use the html 5 elements header, nav, main instead
+        - for role=banner, role=navigation, role=main etc we could have use the html 5 elements header, nav, main, etc instead
             "Be sure to use a nav element or, if using a more generic element such as a div, add a role="navigation" 
             to every navbar to explicitly identify it as a landmark region for users of assistive technologies." 
             Also, the w3.org validator produces the warning: "The navigation role is unnecessary for element nav."
             // http://stackoverflow.com/questions/14180785/html5-nav-element-vs-role-navigation
         
-        - There should only be 1 main element / role
+        - There should only be 1 main element / role main
+        - There should only be 1 role banner
+        - There should only be 1 role contentinfo
 
 -->
 
