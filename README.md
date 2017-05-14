@@ -18,7 +18,11 @@ But in Foundation 6 we instead include the mixins:
 http://foundation.zurb.com/sites/docs/sass.html#adjusting-css-output  
 
 Imports (as I use them), can not use variables, that I dont like  
-http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import
+http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import  
+
+We do not use Foundations JavaScript widgets, only its SASS styling. Very little JavaScript is used on these pages,
+only aria-roles-states-properties.html, where jQuery is included via CDN on that page, used for showing a simple
+interactive menu that is also accessible (I hope).
 
 ## Misc
 
