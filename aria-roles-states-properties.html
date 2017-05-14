@@ -10,8 +10,122 @@
 </head>
 
 <body>
-    <!-- banner of some sort: ARIA roles, states and properties - WCAG etc -->
-    <!-- need jquery also here, use cdn - or maybe make a foundation script bundle and also play with some of its widgets or utility functions -->
+    <div class="row" role="application">
+        <div class="columns medium-12">
+            <div class="row">
+                <div class="columns medium-9" role="banner">
+                    <h1 class="text-center wg-margin-top-md wg-banner">This is my banner!</h1>
+                </div>
+                <div class="columns medium-3">
+                    <div>
+                        <input type="search" role="search" aria-label="Search" placeholder="Search" />
+                    </div>
+                    <div>
+                        <button class="button success expanded" aria-label="Search">Go</button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="row" role="navigation">
+                <div class="columns medium-2" role="navigation">
+                    <ul class="js-main-menu wg-cursor-pointer" role="menu">
+                        <li role="menuitem" aria-selected="false">
+                            Item 1
+                        </li>
+                        <li role="menuitem" aria-selected="false">
+                            Item 2
+                            <ul class="hide" role="menu" aria-hidden="true">
+                                <li role="menuitem" aria-selected="false">
+                                    2: Sub Item 1
+                                </li>
+                                <li role="menuitem" aria-selected="false">
+                                    2: Sub Item 2
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="menuitem" aria-selected="false">
+                            Item 3
+                            <ul class="hide" role="menu" aria-hidden="true">
+                                <li role="menuitem" aria-selected="false">
+                                    3: Sub Item 1
+                                </li>
+                                <li role="menuitem" aria-selected="false">
+                                    3: Sub Item 2
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="columns medium-7" role="main">
+                    <p>
+                        This is the main content.
+                    </p>
+                    <article>
+                        <header>
+                            <h2 class="small-font wg-margin-top-0">Article header</h2>
+                        </header>
+                        <section>
+                            <p>
+                                A section with text in an article.
+                                <a href="https://www.w3.org/wiki/HTML_structural_elements#.3Cheader.3E_and_.3Cfooter.3E">W3.org</a>
+                            </p>
+                        </section>
+                        <footer>Article footer</footer>
+                    </article>
+                </div>
+                <div class="columns medium-3" role="complimentary">
+                    <h2 class="small-font wg-margin-top-0">In other news</h2>
+                    <p class="small-font">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti debitis quasi aliquid dolores enim vitae iure laborum
+                        cum sed illum quia quod asperiores et, animi perspiciatis exercitationem. Facilis, quo?
+                    </p>
+                </div>
+            </div>
+            <div role="contentinfo">
+                Some information about the site ...
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        // We are using inline javascript for simplicity
+
+        var $menuItems = $('.js-main-menu').find('li');
+        var $subMenus = $('.js-main-menu').find('ul');
+
+        $menuItems.on('click', function (event) {
+            event.stopPropagation();
+
+            var $selectedMenuItem = $(this);
+            var $selectedMenuItemSubMenu = $selectedMenuItem.find('ul');
+            var $selectedMenuItemParentMenu = $selectedMenuItem.parent('ul');
+
+            $menuItems.attr('aria-selected', 'false');
+            $subMenus.addClass('hide').attr('aria-hidden', 'true');
+
+            $selectedMenuItem.attr('aria-selected', 'true');
+            $selectedMenuItemSubMenu.removeClass('hide').attr('aria-hidden', 'false');
+            $selectedMenuItemParentMenu.removeClass('hide').attr('aria-hidden', 'false');
+        });
+    </script>
 </body>
+
+<!-- 
+    NOTES
+        - application indicates that the user is moving from widget to widget, and assistive technologies will adapt to that
+        - for role=banner, role=navigation, role=main etc we could have use the html 5 elements header, nav, main, etc instead
+            "Be sure to use a nav element or, if using a more generic element such as a div, add a role="navigation" 
+            to every navbar to explicitly identify it as a landmark region for users of assistive technologies." 
+            Also, the w3.org validator produces the warning: "The navigation role is unnecessary for element nav."
+            // http://stackoverflow.com/questions/14180785/html5-nav-element-vs-role-navigation
+        
+        - There should only be 1 main element / role main
+        - There should only be 1 role banner
+        - There should only be 1 role contentinfo
+
+        - aria-label is a property, it should not change
+        - aria-selected is a state, it can change
+
+-->
 
 </html>

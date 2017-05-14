@@ -156,13 +156,13 @@
         navigation then the main content and the side navigation last.
       </p>
       <h3>Landmark elements</h3>
-      <p>Use these so users can jump between sections.</p>
+      <p>Use these for better semantic and so users can jump between sections.</p>
       <ul>
-        <li>header</li>
-        <li>nav</li>
-        <li>main (can only be one)</li>
-        <li>footer</li>
-        <li>aside</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header">header</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">main (can only be one)</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav">nav</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">aside</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer">footer</a></li>
       </ul>
       <p>
         <div>
@@ -300,7 +300,7 @@
         Dont use placeholder as a replacemnt for a label. Placeholder can however be used to help the user with formatting examples.
       </p>
       <p>
-        Add helper text where needed, dont rely on the placeholder.
+        Add helper text for validation where needed, dont rely on the placeholder, dont solely use color for communicating errors.
       </p>
       <p>
         Make sure that the taborder works (it should work if the form is structured in a logical way).
@@ -309,9 +309,27 @@
         When a label is not needed, visually, because of the context, lets say for a search bar at the top of the page, we still
         need to provide a label so users with screen readers can understand the context. We can hide the label with CSS.
         Use the proper CSS to hide it, do not use display:none since it will hide it from screen readers as well. Instead
-        use the correct CSS, see below under CSS and Accessibility.
+        use the correct CSS, see below under CSS and Accessibility. We could also use aria-label="Search"
       </p>
       <p><a href="wcag-forms.html">See example of form.</a></p>
+      <h4>Cancel submit</h4>
+      <p>
+        Apart from validation (that is communicated in an accesable way), give the user a change to cancel the form
+        submit if possible. For example cancel an order up to 24 hours after its made. This is not always feasable
+        to implement however. We could at least implement some confirmation steps the user will click through.
+      </p>
+      <h4>Make it easy for the user</h4>
+      <p>
+        If we find ourself in need of complex validation rules for an input, for example validation a time inputed
+        in an input field, make it more easy on both ourselves as developers and the user by making a select box
+        with valid times instead.
+      </p>
+      <p>
+        Be careful with the multiple attribute of a select element (the end user can then select multiple things),
+        many users will not know that it is possible to CTRL click to select multiple options from the select box.
+        And it is even harder to use with a keyboard. Instead consider a set of checkboxes for multi selecting.
+      </p>
+
       <h3>Keyboard Control</h3>
       <p>
         This area of accessibility is easely testable, simply stop using the mouse and see if we can use the interface.
@@ -341,9 +359,16 @@
       </p>
       <h3>CSS and Accessibility</h3>
       <p>
-        User styling will override our styles, users can for example change font, font size and contrast. It is important that the
+        User styling will override our styles, users can for example change font, font size, contrast and zoom in. It is important that the
         content looks good under these circumstances, for example a button expanding to fit the bigger font size. Dont use
         pixel values, use relative units instead like REM or percent.
+      </p>
+      <p>
+        <mark>
+          Its better to use relative units for text, so users can change the text size in their browser and have
+          it reflected in the layout in a nice way (block etc should adapt to it). If we use pixels, then users must 
+          zoom in to enlarge the text, but that zooms in everything and the user must use scroll bars to see all the content.
+        </mark>
       </p>
       <p>
         Dont rely on CSS alone to present meaning, use the proper semantic (like h1-h6 for headers).
@@ -419,37 +444,52 @@
         <li>With ARIA, custom controls can be marked as widgets of different types</li>
       </ul>
       <p>
-        There are 3 ARIA categories: Roles, States and properties.
+        There are 3 ARIA categories: Roles, States and Properties.
       </p>
       <h4>Roles</h4>
       <p>
         Roles define what a widget is or what it does. Example of roles are: menus, sliders, progress meters, modals. Roles also
         describe structure like: headings, regions, tables.
       </p>
-      <p>
-        <mark>
-          svg role="img" , li role="menuitem"
-        </mark>
-      </p>
+      <div class="wg-child-margin-sm wg-margin-bottom-md">
+        <div>
+          <code>&lt;svg role="img"/&gt;</code>
+        </div>
+        <div>
+          <code>&lt;li role="menuitem"/&gt;</code>
+        </div>
+      </div>
       <h4>States</h4>
       <p>
         State describes the current interaction state of the widget, examples: checked, disabled, selected, hidden.
       </p>
-      <p>
-        <mark>
-          li aria-selected="true"
-        </mark>
-      </p>
+      <div class="wg-margin-bottom-md">
+        <div>
+          <code>&lt;li aria-selected="true"/&gt;</code>
+        </div>
+      </div>
       <h4>Properties</h4>
       <p>
         Properties describe the charactaristic of the widget, like: drag n drop, live regions (regions that will be updated), modals
         (that will open)
       </p>
-      <p>
-        <mark>
-          li aria-haspopup="true" , li aria-expanded="false"
-        </mark>
-      </p>
+      <div class="wg-child-margin-sm wg-margin-bottom-md">
+        <div>
+          <code>&lt;li aria-haspopup="true"/&gt;</code>
+        </div>
+        <div>
+          <code>&lt;li aria-expanded="false"/&gt;</code>
+        </div>
+        <div>
+          <code>&lt;div aria-live="polite" aria-atomic="false"/&gt;</code>
+        </div>
+        <div>
+          <code>&lt;div aria-live="assertive" aria-atomic="true"/&gt;</code>
+        </div>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">Read more about live regions and atomic</a>
+        </p>
+      </div>
       <h3>Prefer the correct semantic over ARIA</h3>
       <p>
         If there is a semantic correct element for the job then use it, and it is often uneccessary to use ARIA in that case. But
@@ -460,8 +500,12 @@
         aria is only for screen readers, it does not change the browser behavior. If a span gets role="button",
         it does not make it focusable, we still have to give it tabindex="0".
       </p>
+      <h3>Simple Sample Page</h3>
       <p>
-        <a href="aria-roles-states-properties.html">ARIA roles, states and properties in action</a>
+        <a href="aria-roles-states-properties.html">ARIA roles, states and properties in action (see source code)</a>
+      </p>
+      <p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets">MDN Keyboard Navigable JavaScript Widgets</a>
       </p>
 
       <h2>Testing, Resources and Tools <a id="testing-resources-and-tools" class="wg-header-link-icon" href="#testing-resources-and-tools">#</a></h2>
@@ -515,14 +559,15 @@
         <li><a href="http://webaim.org">WebAIM - Web Accessibility In Mind</a></li>
         <li><a href="http://a11yproject.com/">The A11Y Project - A community-driven effort to make web accessibility easier</a></li>
         <li><a href="https://bitsofco.de/the-accessibility-cheatsheet/">Bits of Code - The Accessibility Cheatsheet</a></li>
-        <li><a href="https://www.wuhcag.com/wcag-checklist/">Wuhcag - Checklist</a></li>
+        <li><a href="https://www.wuhcag.com/wcag-checklist/">Wuhcag - Checklist (recommended)</a></li>
         <li lang="sv"><a href="https://webbriktlinjer.se/">Webbriktlinjer för offentlig sektor (swedish)</a></li>
         <li><a href="https://styleguide.svt.se/code/accessibility-checklist.html">Checklist from SVT</a></li>
         <li><a href="https://a11ywins.tumblr.com/">Collection of accessible web sites, great place to be inspired</a></li>
         <li><a href="https://dylanb.github.io/periodic-aria-roles.html">Periodic Table of ARIA 1.0 Roles</a></li>
         <li><a href="https://dylanb.github.io/periodic-aria-attributes.html">Periodic Table of ARIA 1.0 attributes</a></li>
         <li><a href="https://www.w3.org/WAI/intro/aria">WAI-ARIA Overview</a></li>
-        <li><a href="http://rawgit.com/w3c/aria-in-html/master/index.html#notes-on-aria-use-in-html">Using WAI-ARIA in HTML</a></li>
+        <li><a href="https://w3c.github.io/using-aria/">Using WAI-ARIA in HTML</a></li>
+        <li><a href="http://usabilitygeek.com/accessible-web-development-using-w3c-wai-aria/">Accessible Web Development Using W3C’s WAI-ARIA</a></li>
       </ul>
       <h3>Website Tools</h3>
       <ul>
