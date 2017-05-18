@@ -40,6 +40,13 @@
       <p>
           Give them tabindex=0 to make them tabable in the normal document flow. Tab order can be changed by providing other numbers.
       </p>
+      <p>
+        Can also give an element tabindex="-1", then it will be removed from the natural taborder but stil focusable with JavaScript.
+      </p>
+      <p>
+        Dont play around with custom tabindex (tabindex=2,3 etc), it can become a maintenance nightmare.
+        <mark>The only tabindex values we should use are -1 and 0</mark>
+      </p>
     </div>
   </div>
 </body>

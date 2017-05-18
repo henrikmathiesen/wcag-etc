@@ -29,27 +29,27 @@
             <div class="row" role="navigation">
                 <div class="columns medium-2" role="navigation">
                     <ul class="js-main-menu wg-cursor-pointer" role="menu">
-                        <li role="menuitem" aria-selected="false">
+                        <li role="menuitem" aria-selected="false" tabindex="0">
                             Item 1
                         </li>
-                        <li role="menuitem" aria-selected="false">
+                        <li role="menuitem" aria-selected="false" tabindex="0">
                             Item 2
                             <ul class="hide" role="menu" aria-hidden="true">
-                                <li role="menuitem" aria-selected="false">
+                                <li role="menuitem" aria-selected="false" tabindex="0">
                                     2: Sub Item 1
                                 </li>
-                                <li role="menuitem" aria-selected="false">
+                                <li role="menuitem" aria-selected="false" tabindex="0">
                                     2: Sub Item 2
                                 </li>
                             </ul>
                         </li>
-                        <li role="menuitem" aria-selected="false">
+                        <li role="menuitem" aria-selected="false" tabindex="0">
                             Item 3
                             <ul class="hide" role="menu" aria-hidden="true">
-                                <li role="menuitem" aria-selected="false">
+                                <li role="menuitem" aria-selected="false" tabindex="0">
                                     3: Sub Item 1
                                 </li>
-                                <li role="menuitem" aria-selected="false">
+                                <li role="menuitem" aria-selected="false" tabindex="0">
                                     3: Sub Item 2
                                 </li>
                             </ul>
@@ -93,10 +93,10 @@
         var $menuItems = $('.js-main-menu').find('li');
         var $subMenus = $('.js-main-menu').find('ul');
 
-        $menuItems.on('click', function (event) {
+        var menuItemInteraction = function (event, $selected) {
             event.stopPropagation();
 
-            var $selectedMenuItem = $(this);
+            var $selectedMenuItem = $selected;
             var $selectedMenuItemSubMenu = $selectedMenuItem.find('ul');
             var $selectedMenuItemParentMenu = $selectedMenuItem.parent('ul');
 
@@ -106,6 +106,22 @@
             $selectedMenuItem.attr('aria-selected', 'true');
             $selectedMenuItemSubMenu.removeClass('hide').attr('aria-hidden', 'false');
             $selectedMenuItemParentMenu.removeClass('hide').attr('aria-hidden', 'false');
+        };
+
+        $menuItems.on('click', function (event) {
+            menuItemInteraction(event, $(this));
+        });
+
+        $(window).on('keypress', function (event) {
+            if (event.keyCode !== 13) { return; }
+            
+            var $focusedElement = $(':focus');
+            
+            if($focusedElement.attr('role') !== 'menuitem') {
+                return;
+            }
+
+            menuItemInteraction(event, $focusedElement);
         });
     </script>
 </body>
