@@ -11,6 +11,7 @@
 }
 
 .wg-show-for-sr {
+    // show for screen readers only
     position: absolute !important;
     top: auto !important;
     left: -9999px !important;
@@ -18,6 +19,7 @@
     height: 1px !important;
     overflow: hidden !important;
 
+    // show for all on focus
     &:focus {
         position: static!important;
         top:auto !important;
@@ -27,6 +29,9 @@
         overflow: visible !important;
     }
 }
+// Foundation equivalent:   http://foundation.zurb.com/sites/docs/visibility.html#accessibility 
+// Bootstrap equivalent:    http://getbootstrap.com/css/#helper-classes-show-hide
+
 
 // Reset
 
