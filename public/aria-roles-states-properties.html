@@ -28,13 +28,13 @@
             </div>
             <div class="row" role="navigation">
                 <div class="columns medium-2" role="navigation">
-                    <ul class="js-main-menu wg-cursor-pointer" role="menu">
+                    <ul class="js-main-menu wg-cursor-pointer wg-child-margin-sm" role="menu">
                         <li role="menuitem" aria-selected="false" tabindex="0">
                             Item 1
                         </li>
                         <li role="menuitem" aria-selected="false" tabindex="0">
                             Item 2
-                            <ul class="hide" role="menu" aria-hidden="true">
+                            <ul class="hide wg-child-margin-sm" role="menu" aria-hidden="true">
                                 <li role="menuitem" aria-selected="false" tabindex="0">
                                     2: Sub Item 1
                                 </li>
@@ -45,7 +45,7 @@
                         </li>
                         <li role="menuitem" aria-selected="false" tabindex="0">
                             Item 3
-                            <ul class="hide" role="menu" aria-hidden="true">
+                            <ul class="hide wg-child-margin-sm" role="menu" aria-hidden="true">
                                 <li role="menuitem" aria-selected="false" tabindex="0">
                                     3: Sub Item 1
                                 </li>
@@ -86,9 +86,12 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
     <script>
         // We are using inline javascript for simplicity
+        
+        FastClick.attach(document.body);
 
         var $menuItems = $('.js-main-menu').find('li');
         var $subMenus = $('.js-main-menu').find('ul');
@@ -114,10 +117,10 @@
 
         $(window).on('keypress', function (event) {
             if (event.keyCode !== 13) { return; }
-            
+
             var $focusedElement = $(':focus');
-            
-            if($focusedElement.attr('role') !== 'menuitem') {
+
+            if ($focusedElement.attr('role') !== 'menuitem') {
                 return;
             }
 
