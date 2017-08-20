@@ -1,4 +1,9 @@
+// Imported from local folder. Would have been better to import from node_modules but sass compiler cant find util/util referenced in settings file,
+// so I manually changed the path. With grunt/gulp we could have solved it like this http://foundation.zurb.com/sites/docs/sass.html#compiling-manually
+// With webpack we can solve it with includePaths like this https://github.com/webpack-contrib/sass-loader#examples
+// With angular-cli we solve it with includePaths like this https://github.com/henrikmathiesen/my-app/blob/master/.angular-cli.json
 @import 'fd-settings';
+
 @import 'wg-settings';
 
 @import '../../node_modules/foundation-sites/scss/foundation';
