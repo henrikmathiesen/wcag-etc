@@ -17,6 +17,7 @@
             <form novalidate>
                 <!-- Not in the natural taborder, but focusable by JavaScript (scroll to it), tell screen readers it is dynamicly updated, user can then tab through the form -->
                 <!-- Make error messages as links to inputs id -->
+                <!-- could also set https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-invalid_attribute on each input -->
                 <section tabindex="-1" aria-live="assertive" class="js-form-errors wg-input-invalid"></section>
                 <fieldset>
                     <legend>Billing Adress</legend>
@@ -24,7 +25,8 @@
                     <input type="text" id="billing-adress" name="billing-adress" />
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="name@organization.x" />
-                    <input id="newsletter" type="checkbox" name="newsletter" checked /><label for="newsletter">Send me news</label>
+                    <input id="newsletter" type="checkbox" name="newsletter" checked />
+                    <label for="newsletter">Send me news</label>
                 </fieldset>
                 <!-- In foundation fieldset are not styled, to style them use the fieldset class -->
                 <fieldset class="fieldset">
@@ -47,19 +49,19 @@
                         <span class="float-left wg-display-block">
                             Dolores es sita
                         </span>
-                        <span class="float-right help-text wg-display-block wg-input-invalid wg-margin-0">
+                        <span class="float-right help-text wg-display-block wg-margin-0" role="alert">
                             (Required)
                         </span>
-                        <input type="text" name="lorem" placeholder="Met ipsum dol" required />
+                        <input type="text" name="lorem" placeholder="Met ipsum dol" required aria-invalid="false" />
                     </label>
                     <label class="clearfix">
                         <span class="float-left wg-display-block">
                             Password
                         </span>
-                        <span class="float-right help-text wg-display-block wg-input-invalid wg-margin-0">
-                            (At least 8 characters)
+                        <span class="float-right help-text wg-display-block wg-margin-0" role="alert">
+                            (Required)
                         </span>
-                        <input type="password" name="password" required />
+                        <input type="password" name="password" required aria-invalid="false" />
                     </label>
                 </fieldset>
                 <fieldset>
@@ -81,6 +83,32 @@
             </p>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script>
+        function validate(e) {
+            var $requiredFields = $('input[required]');
+
+            $requiredFields.each(function () {
+                var $input = $(this);
+                var $label = $input.prev('span').eq(0);
+
+                if ($input.val() == '') {
+                    $input.attr('aria-invalid', true);
+                    $label.addClass('wg-input-invalid');
+                    e.preventDefault();
+                } else {
+                    $input.attr('aria-invalid', false);
+                    $label.removeClass('wg-input-invalid');
+                }
+            });
+
+        }
+
+        $('form').on('submit', validate);
+        $('form').on('change', validate);
+    </script>
+
 </body>
 
 </html>
