@@ -50,7 +50,7 @@
                             Dolores es sita
                         </span>
                         <span class="float-right help-text wg-display-block wg-margin-0" role="alert">
-                            (Required)
+                            <span class="hide" aria-hidden="true">!</span> (Required)
                         </span>
                         <input type="text" name="lorem" placeholder="Met ipsum dol" required aria-invalid="false" />
                     </label>
@@ -59,7 +59,7 @@
                             Password
                         </span>
                         <span class="float-right help-text wg-display-block wg-margin-0" role="alert">
-                            (Required)
+                            <span class="hide" aria-hidden="true">!</span> (Required)
                         </span>
                         <input type="password" name="password" required aria-invalid="false" />
                     </label>
@@ -92,14 +92,17 @@
             $requiredFields.each(function () {
                 var $input = $(this);
                 var $label = $input.prev('span').eq(0);
+                var $ex = $label.find('span').eq(0);
 
                 if ($input.val() == '') {
                     $input.attr('aria-invalid', true);
                     $label.addClass('wg-input-invalid');
+                    $ex.removeClass('hide');
                     e.preventDefault();
                 } else {
                     $input.attr('aria-invalid', false);
                     $label.removeClass('wg-input-invalid');
+                    $ex.addClass('hide');
                 }
             });
 
