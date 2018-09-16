@@ -17,8 +17,8 @@
     "css:autoprefixer": "postcss --no-map -u autoprefixer --autoprefixer.browsers \"last 3 versions\" -r public/bld/app.css",
     "serve:dev": "node server.js",
     "serve:prod": "cross-env NODE_ENV=production node server.js",
-    "#":"==============================================================================================================",
-    "fromjsfile":"node npm-scripts/consolelog.js"
+    "#": "==============================================================================================================",
+    "fromjsfile": "node npm-scripts/consolelog.js"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
     "express": "4.15.2",
     "foundation-sites": "6.3.1",
     "gh-pages": "0.12.0",
-    "node-sass": "4.5.2",
+    "node-sass": "^4.9.3",
     "onchange": "3.2.1",
     "postcss-cli": "3.0.0"
   }
