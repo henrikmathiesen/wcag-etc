@@ -86,6 +86,14 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
     <script>
+
+        /*
+            NOTE
+            - Use required on required fields
+            - use aria-invalid="true" when input is invalid, toggle true/false
+            - use role="alert" on error messages (or div container), toggle display
+        */
+
         function validate(e) {
             var $requiredFields = $('input[required]');
 
