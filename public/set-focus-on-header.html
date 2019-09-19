@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Set focus on header - WCAG etc">
+    <title>Set focus on header - WCAG etc</title>
+    <link rel="stylesheet" href="bld/app.css">
+</head>
+
+<body>
+    <div class="row">
+        <div class="column small-12">
+            <h1>Set focus on header - WCAG etc</h1>
+            <p>
+                With tabindex -1 we can make an element focusable from code (but user can not tab to it).
+                We use this tecnique to make users next tab hit a certain element.
+            </p>
+            <h2>Some header</h2>
+            <button class="button">Button one</button>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti necessitatibus rem, veritatis dolorem
+                aperiam cum eos ipsam nulla esse ducimus? Eos quo voluptatum, laborum repellat autem quas velit iusto
+                officia.
+            </p>
+            <h2 id="header-gets-focus" tabindex="-1" style="outline: 0">This header gets focus</h2>
+            <button class="button">This button gets next tab</button>
+        </div>
+
+
+    <script>
+        document.getElementById('header-gets-focus').focus();
+    </script>
+</body>
+
+</html>
