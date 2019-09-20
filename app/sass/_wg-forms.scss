@@ -2,6 +2,10 @@ input[type='checkbox']:checked + label {
     font-weight: $global-weight-bold;
 }
 
+.button:focus, button:focus {
+    outline: 2px solid orange;
+}
+
 // Validation
 
 .wg-input-invalid {
