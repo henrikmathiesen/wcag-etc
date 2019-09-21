@@ -89,9 +89,10 @@
 
         /*
             NOTE
-            - Use required on required fields
+            - Use required on required fields (together with novalidate attribute on form tag)
             - use aria-invalid="true" when input is invalid, toggle true/false
             - use role="alert" on error messages (or div container), toggle display
+            - use aria-describedby also, https://www.w3.org/WAI/tutorials/forms/notifications/
         */
 
         function validate(e) {
